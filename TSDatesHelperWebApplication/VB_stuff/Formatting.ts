@@ -1,12 +1,44 @@
 // Module
 module DateTimeFormattingModule {
-
     export interface IFormattingHelpers {
-
+        /** Splits and returns just date */
+        SplitDate(date: Date): {
+            date: number;
+            month: number;
+            year: number;
+        };
+        /** Splits and returns just time */
+        SplitTime(dateTime: Date): {
+            hours: number;
+            minutes: number;
+            seconds: number;
+        };
+        /** same as FormatDateTime(d, 1) */
+        FormatLongDate(date: Date): string;
+        /** same as FormatDateTime(d, 2) */
+        FormatShortDate(date: Date): string;
+        /** same as FormatDateTime(d, 3) */
+        FormatLongTime(dateTime: Date): string;
+        /** same as FormatDateTime(d, 4) */
+        FormatShortTime(dateTime: Date): string;
+        /** DatePart ("ww", d, 2, 2) */
+        FormatWeek(date: Date): number;
+        /** WeekdayName(Weekday(d, 0), true, 0) */
+        FormatWeekDayName(date: Date): string;
+        /** WeekdayName(Weekday(d, 0), false, 0) */
+        FormatLongWeekDayName(date: Date): string;
+        /** returns time from supplied seconds - HH:MM:SS */
+        FormatHMS(seconds: number): string;
+        /** converts seconds to date, returns HH:MM */
+        FormatShortDuration(seconds: number): string;
+        /** give number nice format, optional parameter with number of digits */
+        FormatNumber(numberToFormat: number, fractionDigits?: number): string;
+        /** weekday number, Sunday 1, Saturday 7 */
+        VBWeekday(date: Date): number;
     }
 
     // Class
-    export class FormattingHelpers {
+    export class FormattingHelpers implements IFormattingHelpers {
         /** helper object with english names */
         private monthNamesEng: Array<string>;
         /** days names in english - shorted */
