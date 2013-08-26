@@ -3,7 +3,7 @@ VBScript to TypeScript Dates Helper
 
 What is this project about
 -
-This is mall JavaScript library, generated in TypeScript and unit tested with tsUnit to simulate some of VBScript stuff namely :
+This is small JavaScript library, generated in TypeScript and unit tested with tsUnit to simulate some of VBScript stuff namely :
 
 - FormatDateTime (with 1,2,3 and 4 param),
 - DatePart with ww param,
@@ -13,9 +13,9 @@ and bunch of other stuff I needed for one legacy project, maybe it will suite yo
 
 Content
 -
-Formatting.ts - contains all the logic implemented with Interface and Class.
-FormattingTests.ts - contains unit tests implemented with tsUnit.
-FormattingTests.html - contains small markup to hold all needed css and js files for tests.
+- Formatting.ts - contains all the logic implemented with Interface and Class.
+- FormattingTests.ts - contains unit tests implemented with tsUnit.
+- FormattingTests.html - contains small markup to hold all needed css and js files for tests.
 
 Samples
 -
