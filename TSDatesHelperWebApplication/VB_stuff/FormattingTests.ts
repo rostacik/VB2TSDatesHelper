@@ -23,21 +23,11 @@ module FormattingTestModule {
         }
 
         testSplitDateNull() {
-            try {
-                var res = this.target.SplitDate(null);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.SplitDate(null); });
         }
 
         testSplitDateUndefined() {
-            try {
-                var res = this.target.SplitDate(undefined);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.SplitDate(undefined); });
         }
 
         testSplitTime() {
@@ -49,21 +39,11 @@ module FormattingTestModule {
         }
 
         testSplitTimeNull() {
-            try {
-                var res = this.target.SplitTime(null);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.SplitTime(null); });
         }
 
         testSplitTimeUndefined() {
-            try {
-                var res = this.target.SplitTime(undefined);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.SplitTime(undefined); });
         }
 
         testFormatLongDate1january2013() {
@@ -79,21 +59,11 @@ module FormattingTestModule {
         }
 
         testFormatLongDateNull() {
-            try {
-                var res = this.target.FormatLongDate(null);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatLongDate(null); });
         }
 
         testFormatLongDateUndefined() {
-            try {
-                var res = this.target.FormatLongDate(undefined);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatLongDate(undefined); });
         }
 
         testFormatDate1321975() {
@@ -103,21 +73,11 @@ module FormattingTestModule {
         }
 
         testFormatShortDateUndefined() {
-            try {
-                var res = this.target.FormatShortDate(undefined);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatShortDate(undefined); });
         }
 
         testFormatShortDateNull() {
-            try {
-                var res = this.target.FormatShortDate(null);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatShortDate(null); });
         }
 
         testFormatTime111319() {
@@ -127,21 +87,12 @@ module FormattingTestModule {
         }
 
         testFormatTimeNull() {
-            try {
-                var res = this.target.FormatLongTime(null);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatLongTime(null); });
+
         }
 
         testFormatTimeUndefined() {
-            try {
-                var res = this.target.FormatLongTime(undefined);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatLongTime(undefined); });
         }
 
         testFormatShortTime() {
@@ -151,21 +102,11 @@ module FormattingTestModule {
         }
 
         testFormatShortTimeNull() {
-            try {
-                var res = this.target.FormatShortTime(null);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatShortTime(null); });
         }
 
         testFormatShortTimeUndefined() {
-            try {
-                var res = this.target.FormatShortTime(undefined);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatShortTime(undefined); });
         }
 
         testFormatWeekFeb() {
@@ -229,21 +170,11 @@ module FormattingTestModule {
         }
 
         testFormatWeekUndefined() {
-            try {
-                var res = this.target.FormatWeek(undefined);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatWeek(undefined); });
         }
 
         testFormatWeekNull() {
-            try {
-                var res = this.target.FormatWeek(null);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatWeek(null); });
         }
 
         testFormatWeekDayNameSu() {
@@ -259,21 +190,11 @@ module FormattingTestModule {
         }
 
         testFormatWeekDayNameUndefined() {
-            try {
-                var res = this.target.FormatWeekDayName(undefined);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatWeekDayName(undefined); });
         }
 
         testFormatWeekDayNameNull() {
-            try {
-                var res = this.target.FormatWeekDayName(null);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatWeekDayName(null); });
         }
 
         testFormatWeekDayNameSunday() {
@@ -289,21 +210,11 @@ module FormattingTestModule {
         }
 
         testFormatWeekDayNameMondaynull() {
-            try {
-                var res = this.target.FormatLongWeekDayName(null);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatLongWeekDayName(null); });
         }
 
         testFormatWeekDayNameMondayundefined() {
-            try {
-                var res = this.target.FormatLongWeekDayName(undefined);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatLongWeekDayName(undefined); });
         }
 
         testFormatHMS001() {
@@ -337,21 +248,11 @@ module FormattingTestModule {
         }
 
         testFormatHMSnull() {
-            try {
-                var res = this.target.FormatHMS(null);
-            }            
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatHMS(null); });
         }
 
         testFormatHMSundefined() {
-            try {
-                var res = this.target.FormatHMS(undefined);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatHMS(undefined); });
         }
 
         testFormatShortDuration0() {
@@ -391,21 +292,11 @@ module FormattingTestModule {
         }
 
         testFormatShortDurationundefined() {
-            try {
-                var res = this.target.FormatShortDuration(undefined);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatShortDuration(undefined); });
         }
 
         testFormatShortDurationnull() {
-            try {
-                var res = this.target.FormatShortDuration(null);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatShortDuration(null); });
         }
 
         testFormatNumber1() {
@@ -433,36 +324,21 @@ module FormattingTestModule {
         }
 
         testFormatNumberNull() {
-            try {
-                var res = this.target.FormatNumber(null);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatNumber(null); });
         }
 
         testFormatNumberUndefined() {
-            try {
-                var res = this.target.FormatNumber(undefined);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatNumber(undefined); });
         }
 
         testFormatNumber1dot36() {
-            var res = this.target.FormatNumber(1.3,6);
+            var res = this.target.FormatNumber(1.3, 6);
 
             this.areIdentical('1,300000', res);
         }
 
         testFormatNumberUndefinedOptionalParam() {
-            try {
-                var res = this.target.FormatNumber(undefined, 4);
-            }
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.FormatNumber(undefined, 4); });
         }
 
         testVBWeekday2() {
@@ -484,12 +360,7 @@ module FormattingTestModule {
         }
 
         testVBWeekdayNull() {
-            try {
-                var res = this.target.VBWeekday(null);
-            }            
-            catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            this.throws(() => { var res = this.target.VBWeekday(null); });
         }
     }
 }

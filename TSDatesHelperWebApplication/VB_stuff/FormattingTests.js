@@ -31,19 +31,17 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testSplitDateNull = function () {
-            try  {
-                var res = this.target.SplitDate(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.SplitDate(null);
+            });
         };
 
         FormattingTests.prototype.testSplitDateUndefined = function () {
-            try  {
-                var res = this.target.SplitDate(undefined);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.SplitDate(undefined);
+            });
         };
 
         FormattingTests.prototype.testSplitTime = function () {
@@ -55,19 +53,17 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testSplitTimeNull = function () {
-            try  {
-                var res = this.target.SplitTime(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.SplitTime(null);
+            });
         };
 
         FormattingTests.prototype.testSplitTimeUndefined = function () {
-            try  {
-                var res = this.target.SplitTime(undefined);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.SplitTime(undefined);
+            });
         };
 
         FormattingTests.prototype.testFormatLongDate1january2013 = function () {
@@ -83,19 +79,17 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testFormatLongDateNull = function () {
-            try  {
-                var res = this.target.FormatLongDate(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatLongDate(null);
+            });
         };
 
         FormattingTests.prototype.testFormatLongDateUndefined = function () {
-            try  {
-                var res = this.target.FormatLongDate(undefined);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatLongDate(undefined);
+            });
         };
 
         FormattingTests.prototype.testFormatDate1321975 = function () {
@@ -105,19 +99,17 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testFormatShortDateUndefined = function () {
-            try  {
-                var res = this.target.FormatShortDate(undefined);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatShortDate(undefined);
+            });
         };
 
         FormattingTests.prototype.testFormatShortDateNull = function () {
-            try  {
-                var res = this.target.FormatShortDate(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatShortDate(null);
+            });
         };
 
         FormattingTests.prototype.testFormatTime111319 = function () {
@@ -127,19 +119,17 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testFormatTimeNull = function () {
-            try  {
-                var res = this.target.FormatLongTime(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatLongTime(null);
+            });
         };
 
         FormattingTests.prototype.testFormatTimeUndefined = function () {
-            try  {
-                var res = this.target.FormatLongTime(undefined);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatLongTime(undefined);
+            });
         };
 
         FormattingTests.prototype.testFormatShortTime = function () {
@@ -149,19 +139,17 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testFormatShortTimeNull = function () {
-            try  {
-                var res = this.target.FormatShortTime(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatShortTime(null);
+            });
         };
 
         FormattingTests.prototype.testFormatShortTimeUndefined = function () {
-            try  {
-                var res = this.target.FormatShortTime(undefined);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatShortTime(undefined);
+            });
         };
 
         FormattingTests.prototype.testFormatWeekFeb = function () {
@@ -225,19 +213,17 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testFormatWeekUndefined = function () {
-            try  {
-                var res = this.target.FormatWeek(undefined);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatWeek(undefined);
+            });
         };
 
         FormattingTests.prototype.testFormatWeekNull = function () {
-            try  {
-                var res = this.target.FormatWeek(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatWeek(null);
+            });
         };
 
         FormattingTests.prototype.testFormatWeekDayNameSu = function () {
@@ -253,19 +239,17 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testFormatWeekDayNameUndefined = function () {
-            try  {
-                var res = this.target.FormatWeekDayName(undefined);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatWeekDayName(undefined);
+            });
         };
 
         FormattingTests.prototype.testFormatWeekDayNameNull = function () {
-            try  {
-                var res = this.target.FormatWeekDayName(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatWeekDayName(null);
+            });
         };
 
         FormattingTests.prototype.testFormatWeekDayNameSunday = function () {
@@ -281,19 +265,17 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testFormatWeekDayNameMondaynull = function () {
-            try  {
-                var res = this.target.FormatLongWeekDayName(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatLongWeekDayName(null);
+            });
         };
 
         FormattingTests.prototype.testFormatWeekDayNameMondayundefined = function () {
-            try  {
-                var res = this.target.FormatLongWeekDayName(undefined);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatLongWeekDayName(undefined);
+            });
         };
 
         FormattingTests.prototype.testFormatHMS001 = function () {
@@ -327,19 +309,17 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testFormatHMSnull = function () {
-            try  {
-                var res = this.target.FormatHMS(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatHMS(null);
+            });
         };
 
         FormattingTests.prototype.testFormatHMSundefined = function () {
-            try  {
-                var res = this.target.FormatHMS(undefined);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatHMS(undefined);
+            });
         };
 
         FormattingTests.prototype.testFormatShortDuration0 = function () {
@@ -379,19 +359,17 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testFormatShortDurationundefined = function () {
-            try  {
-                var res = this.target.FormatShortDuration(undefined);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatShortDuration(undefined);
+            });
         };
 
         FormattingTests.prototype.testFormatShortDurationnull = function () {
-            try  {
-                var res = this.target.FormatShortDuration(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatShortDuration(null);
+            });
         };
 
         FormattingTests.prototype.testFormatNumber1 = function () {
@@ -419,19 +397,17 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testFormatNumberNull = function () {
-            try  {
-                var res = this.target.FormatNumber(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatNumber(null);
+            });
         };
 
         FormattingTests.prototype.testFormatNumberUndefined = function () {
-            try  {
-                var res = this.target.FormatNumber(undefined);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatNumber(undefined);
+            });
         };
 
         FormattingTests.prototype.testFormatNumber1dot36 = function () {
@@ -441,11 +417,10 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testFormatNumberUndefinedOptionalParam = function () {
-            try  {
-                var res = this.target.FormatNumber(undefined, 4);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatNumber(undefined, 4);
+            });
         };
 
         FormattingTests.prototype.testVBWeekday2 = function () {
@@ -467,11 +442,10 @@ var FormattingTestModule;
         };
 
         FormattingTests.prototype.testVBWeekdayNull = function () {
-            try  {
-                var res = this.target.VBWeekday(null);
-            } catch (ex) {
-                this.areIdentical(ex.toString(), 'Error: Parameter undefined or null.');
-            }
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.VBWeekday(null);
+            });
         };
         return FormattingTests;
     })(tsUnit.TestClass);
