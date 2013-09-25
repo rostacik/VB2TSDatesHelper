@@ -46,7 +46,7 @@ module DateTimeFormattingModule {
 
         /** cotr */
         constructor() {
-            this.monthNamesEng = new Array();
+            this.monthNamesEng = [];
             this.monthNamesEng.push('January');
             this.monthNamesEng.push('February');
             this.monthNamesEng.push('March');
@@ -60,7 +60,7 @@ module DateTimeFormattingModule {
             this.monthNamesEng.push('November');
             this.monthNamesEng.push('December');
 
-            this.dayNameEng = new Array();
+            this.dayNameEng = [];
             this.dayNameEng.push('sunday');
             this.dayNameEng.push('monday');
             this.dayNameEng.push('tuesday');

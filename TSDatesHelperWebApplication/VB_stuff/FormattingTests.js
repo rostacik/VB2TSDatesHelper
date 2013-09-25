@@ -460,3 +460,4 @@ test.addTestClass(new FormattingTestModule.FormattingTests());
 
 // Use the built in results display
 test.showResults(document.getElementById('results'), test.run());
+//# sourceMappingURL=FormattingTests.js.map
