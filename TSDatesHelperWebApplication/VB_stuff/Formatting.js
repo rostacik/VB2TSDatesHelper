@@ -1,4 +1,4 @@
-// Module
+// Module refactore from VBScript part in p2form.htc file - new smaller p2form.ts is derving from this file - it could also use it with help of dependency injection
 var DateTimeFormattingModule;
 (function (DateTimeFormattingModule) {
     // Class
@@ -20,13 +20,13 @@ var DateTimeFormattingModule;
             this.monthNamesEng.push('December');
 
             this.dayNameEng = [];
-            this.dayNameEng.push('sunday');
-            this.dayNameEng.push('monday');
-            this.dayNameEng.push('tuesday');
-            this.dayNameEng.push('wednesday');
-            this.dayNameEng.push('thursday');
-            this.dayNameEng.push('friday');
-            this.dayNameEng.push('saturday');
+            this.dayNameEng.push('Sunday');
+            this.dayNameEng.push('Monday');
+            this.dayNameEng.push('Tuesday');
+            this.dayNameEng.push('Wednesday');
+            this.dayNameEng.push('Thursday');
+            this.dayNameEng.push('Friday');
+            this.dayNameEng.push('Saturday');
         }
         /** Splits and returns just date */
         FormattingHelpers.prototype.SplitDate = function (date) {

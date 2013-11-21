@@ -180,13 +180,13 @@ module FormattingTestModule {
         testFormatWeekDayNameSu() {
             var res = this.target.FormatWeekDayName(new Date("December 29, 2013 20:30:40"));
 
-            this.areIdentical('su', res);
+            this.areIdentical('Su', res);
         }
 
         testFormatWeekDayNameMo() {
             var res = this.target.FormatWeekDayName(new Date("August 26, 2013 20:30:40"));
 
-            this.areIdentical('mo', res);
+            this.areIdentical('Mo', res);
         }
 
         testFormatWeekDayNameUndefined() {
@@ -200,13 +200,13 @@ module FormattingTestModule {
         testFormatWeekDayNameSunday() {
             var res = this.target.FormatLongWeekDayName(new Date("December 29, 2013 20:30:40"));
 
-            this.areIdentical('sunday', res);
+            this.areIdentical('Sunday', res);
         }
 
         testFormatWeekDayNameMonday() {
             var res = this.target.FormatLongWeekDayName(new Date("August 26, 2013 20:30:40"));
 
-            this.areIdentical('monday', res);
+            this.areIdentical('Monday', res);
         }
 
         testFormatWeekDayNameMondaynull() {

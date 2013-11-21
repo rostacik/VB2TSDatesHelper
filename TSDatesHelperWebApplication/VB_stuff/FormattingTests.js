@@ -229,13 +229,13 @@ var FormattingTestModule;
         FormattingTests.prototype.testFormatWeekDayNameSu = function () {
             var res = this.target.FormatWeekDayName(new Date("December 29, 2013 20:30:40"));
 
-            this.areIdentical('su', res);
+            this.areIdentical('Su', res);
         };
 
         FormattingTests.prototype.testFormatWeekDayNameMo = function () {
             var res = this.target.FormatWeekDayName(new Date("August 26, 2013 20:30:40"));
 
-            this.areIdentical('mo', res);
+            this.areIdentical('Mo', res);
         };
 
         FormattingTests.prototype.testFormatWeekDayNameUndefined = function () {
@@ -255,13 +255,13 @@ var FormattingTestModule;
         FormattingTests.prototype.testFormatWeekDayNameSunday = function () {
             var res = this.target.FormatLongWeekDayName(new Date("December 29, 2013 20:30:40"));
 
-            this.areIdentical('sunday', res);
+            this.areIdentical('Sunday', res);
         };
 
         FormattingTests.prototype.testFormatWeekDayNameMonday = function () {
             var res = this.target.FormatLongWeekDayName(new Date("August 26, 2013 20:30:40"));
 
-            this.areIdentical('monday', res);
+            this.areIdentical('Monday', res);
         };
 
         FormattingTests.prototype.testFormatWeekDayNameMondaynull = function () {
