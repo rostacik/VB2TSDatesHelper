@@ -46,28 +46,8 @@ module DateTimeFormattingModule {
 
         /** cotr */
         constructor() {
-            this.monthNamesEng = [];
-            this.monthNamesEng.push('January');
-            this.monthNamesEng.push('February');
-            this.monthNamesEng.push('March');
-            this.monthNamesEng.push('April');
-            this.monthNamesEng.push('May');
-            this.monthNamesEng.push('June');
-            this.monthNamesEng.push('July');
-            this.monthNamesEng.push('August');
-            this.monthNamesEng.push('September');
-            this.monthNamesEng.push('October');
-            this.monthNamesEng.push('November');
-            this.monthNamesEng.push('December');
-
-            this.dayNameEng = [];
-            this.dayNameEng.push('Sunday');
-            this.dayNameEng.push('Monday');
-            this.dayNameEng.push('Tuesday');
-            this.dayNameEng.push('Wednesday');
-            this.dayNameEng.push('Thursday');
-            this.dayNameEng.push('Friday');
-            this.dayNameEng.push('Saturday');
+            this.monthNamesEng = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            this.dayNameEng = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         }
 
         /** Splits and returns just date */
