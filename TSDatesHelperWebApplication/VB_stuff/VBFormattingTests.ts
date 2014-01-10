@@ -1,4 +1,4 @@
-﻿/// <reference path="Formatting.ts" />
+﻿/// <reference path="VBFormatting.ts" />
 /// <reference path="../Scripts/tsUnit/tsUnit.ts" />
 
 module VBFormattingTestModule {

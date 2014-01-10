@@ -64,21 +64,21 @@
       <DependentUpon>tsUnit.ts</DependentUpon>
     </Content>
     <Content Include="Scripts\tsUnit\tsUnit.ts" />
-    <TypeScriptCompile Include="VB_stuff\Formatting.ts" />
+    <TypeScriptCompile Include="VB_stuff\VBFormatting.ts" />
     <Content Include="Styles\app.css" />
-    <Content Include="VB_stuff\Formatting.js">
-      <DependentUpon>Formatting.ts</DependentUpon>
+    <Content Include="VB_stuff\VBFormatting.js">
+      <DependentUpon>VBFormatting.ts</DependentUpon>
     </Content>
-    <Content Include="VB_stuff\Formatting.js.map">
-      <DependentUpon>Formatting.ts</DependentUpon>
+    <Content Include="VB_stuff\VBFormatting.js.map">
+      <DependentUpon>VBFormatting.ts</DependentUpon>
     </Content>
-    <TypeScriptCompile Include="VB_stuff\FormattingTests.ts" />
-    <Content Include="VB_stuff\FormattingTests.html" />
-    <Content Include="VB_stuff\FormattingTests.js">
-      <DependentUpon>FormattingTests.ts</DependentUpon>
+    <TypeScriptCompile Include="VB_stuff\VBFormattingTests.ts" />
+    <Content Include="VB_stuff\VBFormattingTests.html" />
+    <Content Include="VB_stuff\VBFormattingTests.js">
+      <DependentUpon>VBFormattingTests.ts</DependentUpon>
     </Content>
-    <Content Include="VB_stuff\FormattingTests.js.map">
-      <DependentUpon>FormattingTests.ts</DependentUpon>
+    <Content Include="VB_stuff\VBFormattingTests.js.map">
+      <DependentUpon>VBFormattingTests.ts</DependentUpon>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -104,7 +104,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55890</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
