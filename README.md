@@ -49,6 +49,6 @@ this.areIdentical('99 900 630,00', res);
 var res = this.target.VBWeekday(new Date("August 25, 2013 20:30:40"));
 this.areIdentical(1, res);
 ```
-Used tools
+Used tools (currently compiled with)
 -
-VS2012, TypeScript 0.9.1.1
+VS2013 Prof, TypeScript 0.9.5
