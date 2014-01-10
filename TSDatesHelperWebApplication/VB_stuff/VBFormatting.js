@@ -1,16 +1,10 @@
-// Module refactore from VBScript part in p2form.htc file - new smaller p2form.ts is derving from this file - it could also use it with help of dependency injection
 var VBDateTimeFormattingModule;
 (function (VBDateTimeFormattingModule) {
-    // Class
     var VBFormattingHelpers = (function () {
-        /** ctor */
         function VBFormattingHelpers() {
             this.monthNamesEng = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             this.dayNameEng = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         }
-        /**
-        Returns time from start of the day in seconds
-        */
         VBFormattingHelpers.prototype.getTimeSeconds = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 return (date.getSeconds() + (date.getMinutes() * 60) + (date.getHours() * 60 * 60));
@@ -19,12 +13,10 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** Splits and returns just date */
         VBFormattingHelpers.prototype.SplitDate = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 var curr_date = date.getDate();
 
-                //var curr_month = date.getMonth() + 1; //Months are zero based
                 var curr_month = date.getMonth();
                 var curr_year = date.getFullYear();
 
@@ -34,7 +26,6 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** Splits and returns just time */
         VBFormattingHelpers.prototype.SplitTime = function (dateTime) {
             if ((dateTime !== undefined) && (dateTime !== null)) {
                 var curr_hours = dateTime.getHours();
@@ -47,9 +38,6 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** same as FormatDateTime(d, 0)
-        0 = vbGeneralDate - Default. Returns date: mm/dd/yy (/ or not depends on current culture) and time if specified: hh:mm:ss PM/AM.
-        */
         VBFormattingHelpers.prototype.FormatShortDateAndTime = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 var parsedDate = this.FormatShortDate(date);
@@ -65,7 +53,6 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** same as FormatDateTime(d, 1) */
         VBFormattingHelpers.prototype.FormatLongDate = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 var parsedDate = this.SplitDate(date);
@@ -76,7 +63,6 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** same as FormatDateTime(d, 2) */
         VBFormattingHelpers.prototype.FormatShortDate = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 var parsedDate = this.SplitDate(date);
@@ -87,7 +73,6 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** same as FormatDateTime(d, 3) */
         VBFormattingHelpers.prototype.FormatLongTime = function (dateTime) {
             if ((dateTime !== undefined) && (dateTime !== null)) {
                 return this.FormatHMS(this.getTimeSeconds(dateTime));
@@ -96,7 +81,6 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** same as FormatDateTime(d, 4) */
         VBFormattingHelpers.prototype.FormatShortTime = function (dateTime) {
             if ((dateTime !== undefined) && (dateTime !== null)) {
                 return this.FormatShortDuration(this.getTimeSeconds(dateTime));
@@ -105,17 +89,14 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** DatePart ("ww", d, 2, 2) */
         VBFormattingHelpers.prototype.FormatWeek = function (date) {
             if ((date !== undefined) && (date !== null)) {
-                //stolen from jQuery UI, shame on me....
                 var time, checkDate = new Date(date.getTime());
 
-                // Find Thursday of this week starting on Monday
                 checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
 
                 time = checkDate.getTime();
-                checkDate.setMonth(0); // Compare with Jan 1
+                checkDate.setMonth(0);
                 checkDate.setDate(1);
 
                 return Math.floor(Math.round((time - checkDate.getTime()) / 86400000) / 7) + 1;
@@ -124,7 +105,6 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** WeekdayName(Weekday(d, 0), true, 0) */
         VBFormattingHelpers.prototype.FormatWeekDayName = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 return this.dayNameEng[date.getDay()].substr(0, 2);
@@ -133,7 +113,6 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** WeekdayName(Weekday(d, 0), false, 0) */
         VBFormattingHelpers.prototype.FormatLongWeekDayName = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 return this.dayNameEng[date.getDay()];
@@ -142,7 +121,6 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** returns time from supplied seconds - HH:MM:SS */
         VBFormattingHelpers.prototype.FormatHMS = function (seconds) {
             if ((seconds !== undefined) && (seconds !== null)) {
                 var hoursStr, minutesStr, secondsStr;
@@ -179,16 +157,14 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** converts seconds to date, returns HH:MM */
         VBFormattingHelpers.prototype.FormatShortDuration = function (seconds) {
             return this.FormatHMS(seconds).substr(0, 5);
         };
 
-        /** give number nice format, optional parameter with number of digits */
         VBFormattingHelpers.prototype.FormatNumber = function (numberToFormat, fractionDigits) {
             if ((numberToFormat !== undefined) && (numberToFormat !== null)) {
                 if ((fractionDigits === undefined) || (fractionDigits === null)) {
-                    fractionDigits = 2; //default value
+                    fractionDigits = 2;
                 }
 
                 var numberToFormatStr = numberToFormat.toFixed(fractionDigits) + '';
@@ -207,7 +183,6 @@ var VBDateTimeFormattingModule;
             }
         };
 
-        /** weekday number, Sunday 1, Saturday 7 */
         VBFormattingHelpers.prototype.VBWeekday = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 return date.getDay() + 1;

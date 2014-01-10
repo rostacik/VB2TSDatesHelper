@@ -1,6 +1,4 @@
-﻿/// <reference path="VBFormatting.ts" />
-/// <reference path="../Scripts/tsUnit/tsUnit.ts" />
-var __extends = this.__extends || function (d, b) {
+﻿var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
@@ -14,7 +12,6 @@ var VBFormattingTestModule;
             _super.apply(this, arguments);
             this.target = new VBDateTimeFormattingModule.VBFormattingHelpers();
         }
-        //#region SplitDate tests
         VBFormattingTests.prototype.testSplitDate111913 = function () {
             var res = this.target.SplitDate(new Date(13, 1, 1));
 
@@ -45,8 +42,6 @@ var VBFormattingTestModule;
             });
         };
 
-        //#endregion
-        //#region SplitTime tests
         VBFormattingTests.prototype.testSplitTime = function () {
             var res = this.target.SplitTime(new Date(2013, 1, 1, 12, 15, 50));
 
@@ -69,8 +64,6 @@ var VBFormattingTestModule;
             });
         };
 
-        //#endregion
-        //#region FormatLongDate tests
         VBFormattingTests.prototype.testFormatLongDate1january2013 = function () {
             var res = this.target.FormatLongDate(new Date(2013, 0, 1));
 
@@ -97,8 +90,6 @@ var VBFormattingTestModule;
             });
         };
 
-        //#endregion
-        //#region FormatShortDate tests
         VBFormattingTests.prototype.testFormatDate1321975 = function () {
             var res = this.target.FormatShortDate(new Date("February 13, 1975 11:13:00"));
 
@@ -119,8 +110,6 @@ var VBFormattingTestModule;
             });
         };
 
-        //#endregion
-        //#region FormatShortDateAndTime tests
         VBFormattingTests.prototype.testFormatDateAndTime1321975111319 = function () {
             var res = this.target.FormatShortDateAndTime(new Date("February 13, 1975 11:13:19"));
 
@@ -153,8 +142,6 @@ var VBFormattingTestModule;
             });
         };
 
-        //#endregion
-        //#region FormatShortDate tests
         VBFormattingTests.prototype.testFormatTime111319 = function () {
             var res = this.target.FormatLongTime(new Date("February 13, 1975 11:13:19"));
 
@@ -193,8 +180,6 @@ var VBFormattingTestModule;
             });
         };
 
-        //#endregion
-        //#region FormatShortTime tests
         VBFormattingTests.prototype.testFormatShortTime = function () {
             var res = this.target.FormatShortTime(new Date("February 13, 1975 20:30:40"));
 
@@ -227,8 +212,6 @@ var VBFormattingTestModule;
             });
         };
 
-        //#endregion
-        //#region FormatWeek tests
         VBFormattingTests.prototype.testFormatWeekFeb = function () {
             var res = this.target.FormatWeek(new Date("February 13, 1975 20:30:40"));
 
@@ -355,8 +338,6 @@ var VBFormattingTestModule;
             });
         };
 
-        //#endregion
-        //#region FormatHMS tests
         VBFormattingTests.prototype.testFormatHMS001 = function () {
             var res = this.target.FormatHMS(1);
 
@@ -401,8 +382,6 @@ var VBFormattingTestModule;
             });
         };
 
-        //#endregion
-        //#region FormatShortDuration tests
         VBFormattingTests.prototype.testFormatShortDuration0 = function () {
             var res = this.target.FormatShortDuration(0);
 
@@ -453,8 +432,6 @@ var VBFormattingTestModule;
             });
         };
 
-        //#endregion
-        //#region FormatNumber tests
         VBFormattingTests.prototype.testFormatNumber1 = function () {
             var res = this.target.FormatNumber(1);
 
@@ -506,8 +483,6 @@ var VBFormattingTestModule;
             });
         };
 
-        //#endregion
-        //#region VBWeekday tests
         VBFormattingTests.prototype.testVBWeekday2 = function () {
             var res = this.target.VBWeekday(new Date("August 26, 2013 20:30:40"));
 
@@ -537,12 +512,9 @@ var VBFormattingTestModule;
     VBFormattingTestModule.VBFormattingTests = VBFormattingTests;
 })(VBFormattingTestModule || (VBFormattingTestModule = {}));
 
-// new instance of tsUnit
 var test = new tsUnit.Test();
 
-// add your test class (you can call this multiple times)
 test.addTestClass(new VBFormattingTestModule.VBFormattingTests());
 
-// Use the built in results display
 test.showResults(document.getElementById('results'), test.run());
 //# sourceMappingURL=VBFormattingTests.js.map

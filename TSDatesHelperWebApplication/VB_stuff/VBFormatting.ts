@@ -1,4 +1,3 @@
-// Module refactore from VBScript part in p2form.htc file - new smaller p2form.ts is derving from this file - it could also use it with help of dependency injection
 module VBDateTimeFormattingModule {
     export interface IVBFormattingHelpers {
         /** Splits and returns just date */
@@ -163,7 +162,7 @@ module VBDateTimeFormattingModule {
         public FormatWeek(date: Date): number {
             if ((date !== undefined) && (date !== null)) {
                 //stolen from jQuery UI, shame on me....
-                var time, checkDate = new Date(date.getTime());
+                var time: number, checkDate = new Date(date.getTime());
 
                 // Find Thursday of this week starting on Monday
                 checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
