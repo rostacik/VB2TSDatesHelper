@@ -1,6 +1,6 @@
 // Module refactore from VBScript part in p2form.htc file - new smaller p2form.ts is derving from this file - it could also use it with help of dependency injection
-module DateTimeFormattingModule {
-    export interface IFormattingHelpers {
+module VBDateTimeFormattingModule {
+    export interface IVBFormattingHelpers {
         /** Splits and returns just date */
         SplitDate(date: Date): {
             date: number;
@@ -38,7 +38,7 @@ module DateTimeFormattingModule {
     }
 
     // Class
-    export class FormattingHelpers implements IFormattingHelpers {
+    export class VBFormattingHelpers implements IVBFormattingHelpers {
         /** helper object with english names */
         private monthNamesEng: Array<string>;
         /** days names in english - shorted */

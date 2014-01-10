@@ -1,15 +1,15 @@
 // Module refactore from VBScript part in p2form.htc file - new smaller p2form.ts is derving from this file - it could also use it with help of dependency injection
-var DateTimeFormattingModule;
-(function (DateTimeFormattingModule) {
+var VBDateTimeFormattingModule;
+(function (VBDateTimeFormattingModule) {
     // Class
-    var FormattingHelpers = (function () {
+    var VBFormattingHelpers = (function () {
         /** cotr */
-        function FormattingHelpers() {
+        function VBFormattingHelpers() {
             this.monthNamesEng = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             this.dayNameEng = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         }
         /** Splits and returns just date */
-        FormattingHelpers.prototype.SplitDate = function (date) {
+        VBFormattingHelpers.prototype.SplitDate = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 var curr_date = date.getDate();
 
@@ -24,7 +24,7 @@ var DateTimeFormattingModule;
         };
 
         /** Splits and returns just time */
-        FormattingHelpers.prototype.SplitTime = function (dateTime) {
+        VBFormattingHelpers.prototype.SplitTime = function (dateTime) {
             if ((dateTime !== undefined) && (dateTime !== null)) {
                 var curr_hours = dateTime.getHours();
                 var curr_minutes = dateTime.getMinutes();
@@ -37,7 +37,7 @@ var DateTimeFormattingModule;
         };
 
         /** same as FormatDateTime(d, 1) */
-        FormattingHelpers.prototype.FormatLongDate = function (date) {
+        VBFormattingHelpers.prototype.FormatLongDate = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 var parsedDate = this.SplitDate(date);
 
@@ -48,7 +48,7 @@ var DateTimeFormattingModule;
         };
 
         /** same as FormatDateTime(d, 2) */
-        FormattingHelpers.prototype.FormatShortDate = function (date) {
+        VBFormattingHelpers.prototype.FormatShortDate = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 var parsedDate = this.SplitDate(date);
 
@@ -59,7 +59,7 @@ var DateTimeFormattingModule;
         };
 
         /** same as FormatDateTime(d, 3) */
-        FormattingHelpers.prototype.FormatLongTime = function (dateTime) {
+        VBFormattingHelpers.prototype.FormatLongTime = function (dateTime) {
             if ((dateTime !== undefined) && (dateTime !== null)) {
                 var parsedTime = this.SplitTime(dateTime);
 
@@ -70,7 +70,7 @@ var DateTimeFormattingModule;
         };
 
         /** same as FormatDateTime(d, 4) */
-        FormattingHelpers.prototype.FormatShortTime = function (dateTime) {
+        VBFormattingHelpers.prototype.FormatShortTime = function (dateTime) {
             if ((dateTime !== undefined) && (dateTime !== null)) {
                 var parsedTime = this.SplitTime(dateTime);
 
@@ -81,7 +81,7 @@ var DateTimeFormattingModule;
         };
 
         /** DatePart ("ww", d, 2, 2) */
-        FormattingHelpers.prototype.FormatWeek = function (date) {
+        VBFormattingHelpers.prototype.FormatWeek = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 //stolen from jQuery UI, shame on me....
                 var time, checkDate = new Date(date.getTime());
@@ -90,7 +90,7 @@ var DateTimeFormattingModule;
                 checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
 
                 time = checkDate.getTime();
-                checkDate.setMonth(0);
+                checkDate.setMonth(0); // Compare with Jan 1
                 checkDate.setDate(1);
 
                 return Math.floor(Math.round((time - checkDate.getTime()) / 86400000) / 7) + 1;
@@ -100,7 +100,7 @@ var DateTimeFormattingModule;
         };
 
         /** WeekdayName(Weekday(d, 0), true, 0) */
-        FormattingHelpers.prototype.FormatWeekDayName = function (date) {
+        VBFormattingHelpers.prototype.FormatWeekDayName = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 return this.dayNameEng[date.getDay()].substr(0, 2);
             } else {
@@ -109,7 +109,7 @@ var DateTimeFormattingModule;
         };
 
         /** WeekdayName(Weekday(d, 0), false, 0) */
-        FormattingHelpers.prototype.FormatLongWeekDayName = function (date) {
+        VBFormattingHelpers.prototype.FormatLongWeekDayName = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 return this.dayNameEng[date.getDay()];
             } else {
@@ -118,7 +118,7 @@ var DateTimeFormattingModule;
         };
 
         /** returns time from supplied seconds - HH:MM:SS */
-        FormattingHelpers.prototype.FormatHMS = function (seconds) {
+        VBFormattingHelpers.prototype.FormatHMS = function (seconds) {
             if ((seconds !== undefined) && (seconds !== null)) {
                 var hoursStr, minutesStr, secondsStr;
 
@@ -155,15 +155,15 @@ var DateTimeFormattingModule;
         };
 
         /** converts seconds to date, returns HH:MM */
-        FormattingHelpers.prototype.FormatShortDuration = function (seconds) {
+        VBFormattingHelpers.prototype.FormatShortDuration = function (seconds) {
             return this.FormatHMS(seconds).substr(0, 5);
         };
 
         /** give number nice format, optional parameter with number of digits */
-        FormattingHelpers.prototype.FormatNumber = function (numberToFormat, fractionDigits) {
+        VBFormattingHelpers.prototype.FormatNumber = function (numberToFormat, fractionDigits) {
             if ((numberToFormat !== undefined) && (numberToFormat !== null)) {
                 if ((fractionDigits === undefined) || (fractionDigits === null)) {
-                    fractionDigits = 2;
+                    fractionDigits = 2; //default value
                 }
 
                 var numberToFormatStr = numberToFormat.toFixed(fractionDigits) + '';
@@ -183,15 +183,15 @@ var DateTimeFormattingModule;
         };
 
         /** weekday number, Sunday 1, Saturday 7 */
-        FormattingHelpers.prototype.VBWeekday = function (date) {
+        VBFormattingHelpers.prototype.VBWeekday = function (date) {
             if ((date !== undefined) && (date !== null)) {
                 return date.getDay() + 1;
             } else {
                 throw new Error('Parameter undefined or null.');
             }
         };
-        return FormattingHelpers;
+        return VBFormattingHelpers;
     })();
-    DateTimeFormattingModule.FormattingHelpers = FormattingHelpers;
-})(DateTimeFormattingModule || (DateTimeFormattingModule = {}));
+    VBDateTimeFormattingModule.VBFormattingHelpers = VBFormattingHelpers;
+})(VBDateTimeFormattingModule || (VBDateTimeFormattingModule = {}));
 //# sourceMappingURL=Formatting.js.map

@@ -1,10 +1,10 @@
 ﻿/// <reference path="Formatting.ts" />
 /// <reference path="../Scripts/tsUnit/tsUnit.ts" />
 
-module FormattingTestModule {
-    export class FormattingTests extends tsUnit.TestClass {
+module VBFormattingTestModule {
+    export class VBFormattingTests extends tsUnit.TestClass {
 
-        private target = new DateTimeFormattingModule.FormattingHelpers();
+        private target = new VBDateTimeFormattingModule.VBFormattingHelpers();
 
         testSplitDate111913() {
             var res = this.target.SplitDate(new Date(13, 1, 1));
@@ -369,7 +369,7 @@ module FormattingTestModule {
 var test = new tsUnit.Test();
 
 // add your test class (you can call this multiple times)
-test.addTestClass(new FormattingTestModule.FormattingTests());
+test.addTestClass(new VBFormattingTestModule.VBFormattingTests());
 
 // Use the built in results display
 test.showResults(document.getElementById('results'), test.run());

@@ -69,7 +69,7 @@
     <Content Include="VB_stuff\Formatting.js">
       <DependentUpon>Formatting.ts</DependentUpon>
     </Content>
-    <Content Include="VB_stuff\Formatting.min.js">
+    <Content Include="VB_stuff\Formatting.js.map">
       <DependentUpon>Formatting.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="VB_stuff\FormattingTests.ts" />
@@ -77,7 +77,7 @@
     <Content Include="VB_stuff\FormattingTests.js">
       <DependentUpon>FormattingTests.ts</DependentUpon>
     </Content>
-    <Content Include="VB_stuff\FormattingTests.min.js">
+    <Content Include="VB_stuff\FormattingTests.js.map">
       <DependentUpon>FormattingTests.ts</DependentUpon>
     </Content>
     <Content Include="Web.config" />
@@ -86,9 +86,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="VB_stuff\FormattingTests.min.js.map">
-      <DependentUpon>FormattingTests.js</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
