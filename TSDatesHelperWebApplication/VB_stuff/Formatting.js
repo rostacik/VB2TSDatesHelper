@@ -3,11 +3,22 @@ var VBDateTimeFormattingModule;
 (function (VBDateTimeFormattingModule) {
     // Class
     var VBFormattingHelpers = (function () {
-        /** cotr */
+        /** ctor */
         function VBFormattingHelpers() {
             this.monthNamesEng = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             this.dayNameEng = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         }
+        /**
+        Returns time from start of the day in seconds
+        */
+        VBFormattingHelpers.prototype.getTimeSeconds = function (date) {
+            if ((date !== undefined) && (date !== null)) {
+                return (date.getSeconds() + (date.getMinutes() * 60) + (date.getHours() * 60 * 60));
+            } else {
+                throw new Error('Parameter undefined or null.');
+            }
+        };
+
         /** Splits and returns just date */
         VBFormattingHelpers.prototype.SplitDate = function (date) {
             if ((date !== undefined) && (date !== null)) {
@@ -31,6 +42,24 @@ var VBDateTimeFormattingModule;
                 var curr_seconds = dateTime.getSeconds();
 
                 return { hours: curr_hours, minutes: curr_minutes, seconds: curr_seconds };
+            } else {
+                throw new Error('Parameter undefined or null.');
+            }
+        };
+
+        /** same as FormatDateTime(d, 0)
+        0 = vbGeneralDate - Default. Returns date: mm/dd/yy (/ or not depends on current culture) and time if specified: hh:mm:ss PM/AM.
+        */
+        VBFormattingHelpers.prototype.FormatShortDateAndTime = function (date) {
+            if ((date !== undefined) && (date !== null)) {
+                var parsedDate = this.FormatShortDate(date);
+                var parsedTime = this.FormatLongTime(date);
+
+                if (parsedTime !== '00:00:00') {
+                    return parsedDate + ' ' + this.FormatHMS(this.getTimeSeconds(date));
+                } else {
+                    return parsedDate;
+                }
             } else {
                 throw new Error('Parameter undefined or null.');
             }
@@ -61,9 +90,7 @@ var VBDateTimeFormattingModule;
         /** same as FormatDateTime(d, 3) */
         VBFormattingHelpers.prototype.FormatLongTime = function (dateTime) {
             if ((dateTime !== undefined) && (dateTime !== null)) {
-                var parsedTime = this.SplitTime(dateTime);
-
-                return parsedTime.hours + ':' + parsedTime.minutes + ':' + parsedTime.seconds;
+                return this.FormatHMS(this.getTimeSeconds(dateTime));
             } else {
                 throw new Error('Parameter undefined or null.');
             }
@@ -72,9 +99,7 @@ var VBDateTimeFormattingModule;
         /** same as FormatDateTime(d, 4) */
         VBFormattingHelpers.prototype.FormatShortTime = function (dateTime) {
             if ((dateTime !== undefined) && (dateTime !== null)) {
-                var parsedTime = this.SplitTime(dateTime);
-
-                return parsedTime.hours + ':' + parsedTime.minutes;
+                return this.FormatShortDuration(this.getTimeSeconds(dateTime));
             } else {
                 throw new Error('Parameter undefined or null.');
             }

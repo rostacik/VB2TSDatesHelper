@@ -14,6 +14,7 @@ var VBFormattingTestModule;
             _super.apply(this, arguments);
             this.target = new VBDateTimeFormattingModule.VBFormattingHelpers();
         }
+        //#region SplitDate tests
         VBFormattingTests.prototype.testSplitDate111913 = function () {
             var res = this.target.SplitDate(new Date(13, 1, 1));
 
@@ -44,6 +45,8 @@ var VBFormattingTestModule;
             });
         };
 
+        //#endregion
+        //#region SplitTime tests
         VBFormattingTests.prototype.testSplitTime = function () {
             var res = this.target.SplitTime(new Date(2013, 1, 1, 12, 15, 50));
 
@@ -66,6 +69,8 @@ var VBFormattingTestModule;
             });
         };
 
+        //#endregion
+        //#region FormatLongDate tests
         VBFormattingTests.prototype.testFormatLongDate1january2013 = function () {
             var res = this.target.FormatLongDate(new Date(2013, 0, 1));
 
@@ -92,6 +97,8 @@ var VBFormattingTestModule;
             });
         };
 
+        //#endregion
+        //#region FormatShortDate tests
         VBFormattingTests.prototype.testFormatDate1321975 = function () {
             var res = this.target.FormatShortDate(new Date("February 13, 1975 11:13:00"));
 
@@ -112,10 +119,64 @@ var VBFormattingTestModule;
             });
         };
 
+        //#endregion
+        //#region FormatShortDateAndTime tests
+        VBFormattingTests.prototype.testFormatDateAndTime1321975111319 = function () {
+            var res = this.target.FormatShortDateAndTime(new Date("February 13, 1975 11:13:19"));
+
+            this.areIdentical('13. 2. 1975 11:13:19', res);
+        };
+
+        VBFormattingTests.prototype.testFormatDateAndTime1321975010100 = function () {
+            var res = this.target.FormatShortDateAndTime(new Date("February 13, 1975 01:01:00"));
+
+            this.areIdentical('13. 2. 1975 01:01:00', res);
+        };
+
+        VBFormattingTests.prototype.testFormatDateAndTime1321975000000 = function () {
+            var res = this.target.FormatShortDateAndTime(new Date("February 13, 1975"));
+
+            this.areIdentical('13. 2. 1975', res);
+        };
+
+        VBFormattingTests.prototype.testFormatShortDateAndTimeUndefined = function () {
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatShortDateAndTime(undefined);
+            });
+        };
+
+        VBFormattingTests.prototype.testFormatShortDateAndTimeNull = function () {
+            var _this = this;
+            this.throws(function () {
+                var res = _this.target.FormatShortDateAndTime(null);
+            });
+        };
+
+        //#endregion
+        //#region FormatShortDate tests
         VBFormattingTests.prototype.testFormatTime111319 = function () {
             var res = this.target.FormatLongTime(new Date("February 13, 1975 11:13:19"));
 
             this.areIdentical('11:13:19', res);
+        };
+
+        VBFormattingTests.prototype.testFormatTime111300 = function () {
+            var res = this.target.FormatLongTime(new Date("February 13, 1975 11:13:00"));
+
+            this.areIdentical('11:13:00', res);
+        };
+
+        VBFormattingTests.prototype.testFormatTime000000 = function () {
+            var res = this.target.FormatLongTime(new Date("February 13, 1975 00:00:00"));
+
+            this.areIdentical('00:00:00', res);
+        };
+
+        VBFormattingTests.prototype.testFormatTime010203 = function () {
+            var res = this.target.FormatLongTime(new Date("February 13, 1975 01:02:03"));
+
+            this.areIdentical('01:02:03', res);
         };
 
         VBFormattingTests.prototype.testFormatTimeNull = function () {
@@ -132,10 +193,24 @@ var VBFormattingTestModule;
             });
         };
 
+        //#endregion
+        //#region FormatShortTime tests
         VBFormattingTests.prototype.testFormatShortTime = function () {
             var res = this.target.FormatShortTime(new Date("February 13, 1975 20:30:40"));
 
             this.areIdentical('20:30', res);
+        };
+
+        VBFormattingTests.prototype.testFormatShortTime0000 = function () {
+            var res = this.target.FormatShortTime(new Date("February 13, 1975 00:00:00"));
+
+            this.areIdentical('00:00', res);
+        };
+
+        VBFormattingTests.prototype.testFormatShortTime0201 = function () {
+            var res = this.target.FormatShortTime(new Date("February 13, 1975 02:01:00"));
+
+            this.areIdentical('02:01', res);
         };
 
         VBFormattingTests.prototype.testFormatShortTimeNull = function () {
@@ -152,6 +227,8 @@ var VBFormattingTestModule;
             });
         };
 
+        //#endregion
+        //#region FormatWeek tests
         VBFormattingTests.prototype.testFormatWeekFeb = function () {
             var res = this.target.FormatWeek(new Date("February 13, 1975 20:30:40"));
 
@@ -278,6 +355,8 @@ var VBFormattingTestModule;
             });
         };
 
+        //#endregion
+        //#region FormatHMS tests
         VBFormattingTests.prototype.testFormatHMS001 = function () {
             var res = this.target.FormatHMS(1);
 
@@ -322,6 +401,8 @@ var VBFormattingTestModule;
             });
         };
 
+        //#endregion
+        //#region FormatShortDuration tests
         VBFormattingTests.prototype.testFormatShortDuration0 = function () {
             var res = this.target.FormatShortDuration(0);
 
@@ -372,6 +453,8 @@ var VBFormattingTestModule;
             });
         };
 
+        //#endregion
+        //#region FormatNumber tests
         VBFormattingTests.prototype.testFormatNumber1 = function () {
             var res = this.target.FormatNumber(1);
 
@@ -423,6 +506,8 @@ var VBFormattingTestModule;
             });
         };
 
+        //#endregion
+        //#region VBWeekday tests
         VBFormattingTests.prototype.testVBWeekday2 = function () {
             var res = this.target.VBWeekday(new Date("August 26, 2013 20:30:40"));
 

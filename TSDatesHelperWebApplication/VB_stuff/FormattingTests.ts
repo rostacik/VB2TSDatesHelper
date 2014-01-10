@@ -6,6 +6,7 @@ module VBFormattingTestModule {
 
         private target = new VBDateTimeFormattingModule.VBFormattingHelpers();
 
+        //#region SplitDate tests
         testSplitDate111913() {
             var res = this.target.SplitDate(new Date(13, 1, 1));
 
@@ -29,7 +30,9 @@ module VBFormattingTestModule {
         testSplitDateUndefined() {
             this.throws(() => { var res = this.target.SplitDate(undefined); });
         }
+        //#endregion
 
+        //#region SplitTime tests
         testSplitTime() {
             var res = this.target.SplitTime(new Date(2013, 1, 1, 12, 15, 50));
 
@@ -45,7 +48,9 @@ module VBFormattingTestModule {
         testSplitTimeUndefined() {
             this.throws(() => { var res = this.target.SplitTime(undefined); });
         }
+        //#endregion
 
+        //#region FormatLongDate tests
         testFormatLongDate1january2013() {
             var res = this.target.FormatLongDate(new Date(2013, 0, 1));
 
@@ -65,7 +70,9 @@ module VBFormattingTestModule {
         testFormatLongDateUndefined() {
             this.throws(() => { var res = this.target.FormatLongDate(undefined); });
         }
+        //#endregion
 
+        //#region FormatShortDate tests
         testFormatDate1321975() {
             var res = this.target.FormatShortDate(new Date("February 13, 1975 11:13:00"));
 
@@ -79,11 +86,59 @@ module VBFormattingTestModule {
         testFormatShortDateNull() {
             this.throws(() => { var res = this.target.FormatShortDate(null); });
         }
+        //#endregion
 
+        //#region FormatShortDateAndTime tests
+        testFormatDateAndTime1321975111319() {
+            var res = this.target.FormatShortDateAndTime(new Date("February 13, 1975 11:13:19"));
+
+            this.areIdentical('13. 2. 1975 11:13:19', res);
+        }
+
+        testFormatDateAndTime1321975010100() {
+            var res = this.target.FormatShortDateAndTime(new Date("February 13, 1975 01:01:00"));
+
+            this.areIdentical('13. 2. 1975 01:01:00', res);
+        }
+
+        testFormatDateAndTime1321975000000() {
+            var res = this.target.FormatShortDateAndTime(new Date("February 13, 1975"));
+
+            this.areIdentical('13. 2. 1975', res);
+        }
+
+        testFormatShortDateAndTimeUndefined() {
+            this.throws(() => { var res = this.target.FormatShortDateAndTime(undefined); });
+        }
+
+        testFormatShortDateAndTimeNull() {
+            this.throws(() => { var res = this.target.FormatShortDateAndTime(null); });
+        }
+        //#endregion
+
+        //#region FormatShortDate tests
         testFormatTime111319() {
             var res = this.target.FormatLongTime(new Date("February 13, 1975 11:13:19"));
 
             this.areIdentical('11:13:19', res);
+        }
+
+        testFormatTime111300() {
+            var res = this.target.FormatLongTime(new Date("February 13, 1975 11:13:00"));
+
+            this.areIdentical('11:13:00', res);
+        }
+
+        testFormatTime000000() {
+            var res = this.target.FormatLongTime(new Date("February 13, 1975 00:00:00"));
+
+            this.areIdentical('00:00:00', res);
+        }
+
+        testFormatTime010203() {
+            var res = this.target.FormatLongTime(new Date("February 13, 1975 01:02:03"));
+
+            this.areIdentical('01:02:03', res);
         }
 
         testFormatTimeNull() {
@@ -94,11 +149,25 @@ module VBFormattingTestModule {
         testFormatTimeUndefined() {
             this.throws(() => { var res = this.target.FormatLongTime(undefined); });
         }
+        //#endregion
 
+        //#region FormatShortTime tests
         testFormatShortTime() {
             var res = this.target.FormatShortTime(new Date("February 13, 1975 20:30:40"));
 
             this.areIdentical('20:30', res);
+        }
+
+        testFormatShortTime0000() {
+            var res = this.target.FormatShortTime(new Date("February 13, 1975 00:00:00"));
+
+            this.areIdentical('00:00', res);
+        }
+
+        testFormatShortTime0201() {
+            var res = this.target.FormatShortTime(new Date("February 13, 1975 02:01:00"));
+
+            this.areIdentical('02:01', res);
         }
 
         testFormatShortTimeNull() {
@@ -108,7 +177,9 @@ module VBFormattingTestModule {
         testFormatShortTimeUndefined() {
             this.throws(() => { var res = this.target.FormatShortTime(undefined); });
         }
+        //#endregion
 
+        //#region FormatWeek tests
         testFormatWeekFeb() {
             var res = this.target.FormatWeek(new Date("February 13, 1975 20:30:40"));
 
@@ -216,7 +287,9 @@ module VBFormattingTestModule {
         testFormatWeekDayNameMondayundefined() {
             this.throws(() => { var res = this.target.FormatLongWeekDayName(undefined); });
         }
+        //#endregion
 
+        //#region FormatHMS tests
         testFormatHMS001() {
             var res = this.target.FormatHMS(1);
 
@@ -254,7 +327,9 @@ module VBFormattingTestModule {
         testFormatHMSundefined() {
             this.throws(() => { var res = this.target.FormatHMS(undefined); });
         }
+        //#endregion
 
+        //#region FormatShortDuration tests
         testFormatShortDuration0() {
             var res = this.target.FormatShortDuration(0);
 
@@ -298,7 +373,9 @@ module VBFormattingTestModule {
         testFormatShortDurationnull() {
             this.throws(() => { var res = this.target.FormatShortDuration(null); });
         }
+        //#endregion
 
+        //#region FormatNumber tests
         testFormatNumber1() {
             var res = this.target.FormatNumber(1);
 
@@ -340,7 +417,9 @@ module VBFormattingTestModule {
         testFormatNumberUndefinedOptionalParam() {
             this.throws(() => { var res = this.target.FormatNumber(undefined, 4); });
         }
+        //#endregion
 
+        //#region VBWeekday tests
         testVBWeekday2() {
             var res = this.target.VBWeekday(new Date("August 26, 2013 20:30:40"));
 
@@ -362,6 +441,7 @@ module VBFormattingTestModule {
         testVBWeekdayNull() {
             this.throws(() => { var res = this.target.VBWeekday(null); });
         }
+        //#endregion
     }
 }
 
