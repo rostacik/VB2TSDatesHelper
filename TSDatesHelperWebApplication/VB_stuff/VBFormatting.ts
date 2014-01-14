@@ -66,12 +66,11 @@ module VBDateTimeFormattingModule {
         /** Splits and returns just date */
         public SplitDate(date: Date): { date: number; month: number; year: number } {
             if ((date !== undefined) && (date !== null)) {
-                var curr_date = date.getDate();
-                //var curr_month = date.getMonth() + 1; //Months are zero based
-                var curr_month = date.getMonth();
-                var curr_year = date.getFullYear();
+                var currDate = date.getDate();
+                var currMonth = date.getMonth();
+                var currYear = date.getFullYear();
 
-                return { date: curr_date, month: curr_month, year: curr_year };
+                return { date: currDate, month: currMonth, year: currYear };
             }
             else {
                 throw new Error('Parameter undefined or null.');
@@ -81,11 +80,11 @@ module VBDateTimeFormattingModule {
         /** Splits and returns just time */
         public SplitTime(dateTime: Date): { hours: number; minutes: number; seconds: number } {
             if ((dateTime !== undefined) && (dateTime !== null)) {
-                var curr_hours = dateTime.getHours();
-                var curr_minutes = dateTime.getMinutes();
-                var curr_seconds = dateTime.getSeconds();
+                var currHours = dateTime.getHours();
+                var currMinutes = dateTime.getMinutes();
+                var currSeconds = dateTime.getSeconds();
 
-                return { hours: curr_hours, minutes: curr_minutes, seconds: curr_seconds };
+                return { hours: currHours, minutes: currMinutes, seconds: currSeconds };
             }
             else {
                 throw new Error('Parameter undefined or null.');
@@ -205,11 +204,11 @@ module VBDateTimeFormattingModule {
 
                 var hours = Math.floor(seconds / (60 * 60));
 
-                var divisor_for_minutes = seconds % (60 * 60);
-                var minutes = Math.floor(divisor_for_minutes / 60);
+                var divisorForMinutes = seconds % (60 * 60);
+                var minutes = Math.floor(divisorForMinutes / 60);
 
-                var divisor_for_seconds = divisor_for_minutes % 60;
-                var seconds = Math.ceil(divisor_for_seconds);
+                var divisorForSeconds = divisorForMinutes % 60;
+                seconds = Math.ceil(divisorForSeconds);
 
                 if (hours < 10) {
                     hoursStr = '0' + hours;
