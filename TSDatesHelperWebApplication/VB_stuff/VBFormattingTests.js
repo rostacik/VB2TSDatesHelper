@@ -31,14 +31,14 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testSplitDateNull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.SplitDate(null);
+                _this.target.SplitDate(null);
             });
         };
 
         VBFormattingTests.prototype.testSplitDateUndefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.SplitDate(undefined);
+                _this.target.SplitDate(undefined);
             });
         };
 
@@ -53,40 +53,40 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testSplitTimeNull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.SplitTime(null);
+                _this.target.SplitTime(null);
             });
         };
 
         VBFormattingTests.prototype.testSplitTimeUndefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.SplitTime(undefined);
+                _this.target.SplitTime(undefined);
             });
         };
 
         VBFormattingTests.prototype.testFormatLongDate1january2013 = function () {
             var res = this.target.FormatLongDate(new Date(2013, 0, 1));
 
-            this.areIdentical('1. January 2013', res);
+            this.areIdentical('1. Januar 2013', res);
         };
 
         VBFormattingTests.prototype.testFormatLongDate13february1975 = function () {
             var res = this.target.FormatLongDate(new Date("February 13, 1975 11:13:00"));
 
-            this.areIdentical('13. February 1975', res);
+            this.areIdentical('13. Februar 1975', res);
         };
 
         VBFormattingTests.prototype.testFormatLongDateNull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatLongDate(null);
+                _this.target.FormatLongDate(null);
             });
         };
 
         VBFormattingTests.prototype.testFormatLongDateUndefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatLongDate(undefined);
+                _this.target.FormatLongDate(undefined);
             });
         };
 
@@ -99,14 +99,14 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testFormatShortDateUndefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatShortDate(undefined);
+                _this.target.FormatShortDate(undefined);
             });
         };
 
         VBFormattingTests.prototype.testFormatShortDateNull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatShortDate(null);
+                _this.target.FormatShortDate(null);
             });
         };
 
@@ -131,14 +131,14 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testFormatShortDateAndTimeUndefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatShortDateAndTime(undefined);
+                _this.target.FormatShortDateAndTime(undefined);
             });
         };
 
         VBFormattingTests.prototype.testFormatShortDateAndTimeNull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatShortDateAndTime(null);
+                _this.target.FormatShortDateAndTime(null);
             });
         };
 
@@ -169,14 +169,14 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testFormatTimeNull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatLongTime(null);
+                _this.target.FormatLongTime(null);
             });
         };
 
         VBFormattingTests.prototype.testFormatTimeUndefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatLongTime(undefined);
+                _this.target.FormatLongTime(undefined);
             });
         };
 
@@ -201,14 +201,14 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testFormatShortTimeNull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatShortTime(null);
+                _this.target.FormatShortTime(null);
             });
         };
 
         VBFormattingTests.prototype.testFormatShortTimeUndefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatShortTime(undefined);
+                _this.target.FormatShortTime(undefined);
             });
         };
 
@@ -275,21 +275,21 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testFormatWeekUndefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatWeek(undefined);
+                _this.target.FormatWeek(undefined);
             });
         };
 
         VBFormattingTests.prototype.testFormatWeekNull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatWeek(null);
+                _this.target.FormatWeek(null);
             });
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameSu = function () {
             var res = this.target.FormatWeekDayName(new Date("December 29, 2013 20:30:40"));
 
-            this.areIdentical('Su', res);
+            this.areIdentical('So', res);
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameMo = function () {
@@ -301,40 +301,40 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testFormatWeekDayNameUndefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatWeekDayName(undefined);
+                _this.target.FormatWeekDayName(undefined);
             });
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameNull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatWeekDayName(null);
+                _this.target.FormatWeekDayName(null);
             });
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameSunday = function () {
             var res = this.target.FormatLongWeekDayName(new Date("December 29, 2013 20:30:40"));
 
-            this.areIdentical('Sunday', res);
+            this.areIdentical('Sonntag', res);
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameMonday = function () {
             var res = this.target.FormatLongWeekDayName(new Date("August 26, 2013 20:30:40"));
 
-            this.areIdentical('Monday', res);
+            this.areIdentical('Montag', res);
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameMondaynull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatLongWeekDayName(null);
+                _this.target.FormatLongWeekDayName(null);
             });
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameMondayundefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatLongWeekDayName(undefined);
+                _this.target.FormatLongWeekDayName(undefined);
             });
         };
 
@@ -371,14 +371,14 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testFormatHMSnull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatHMS(null);
+                _this.target.FormatHMS(null);
             });
         };
 
         VBFormattingTests.prototype.testFormatHMSundefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatHMS(undefined);
+                _this.target.FormatHMS(undefined);
             });
         };
 
@@ -421,14 +421,14 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testFormatShortDurationundefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatShortDuration(undefined);
+                _this.target.FormatShortDuration(undefined);
             });
         };
 
         VBFormattingTests.prototype.testFormatShortDurationnull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatShortDuration(null);
+                _this.target.FormatShortDuration(null);
             });
         };
 
@@ -459,14 +459,14 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testFormatNumberNull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatNumber(null);
+                _this.target.FormatNumber(null);
             });
         };
 
         VBFormattingTests.prototype.testFormatNumberUndefined = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatNumber(undefined);
+                _this.target.FormatNumber(undefined);
             });
         };
 
@@ -479,7 +479,7 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testFormatNumberUndefinedOptionalParam = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.FormatNumber(undefined, 4);
+                _this.target.FormatNumber(undefined, 4);
             });
         };
 
@@ -504,7 +504,7 @@ var VBFormattingTestModule;
         VBFormattingTests.prototype.testVBWeekdayNull = function () {
             var _this = this;
             this.throws(function () {
-                var res = _this.target.VBWeekday(null);
+                _this.target.VBWeekday(null);
             });
         };
         return VBFormattingTests;

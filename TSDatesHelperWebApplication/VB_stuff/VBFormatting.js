@@ -1,9 +1,9 @@
-var VBDateTimeFormattingModule;
+﻿var VBDateTimeFormattingModule;
 (function (VBDateTimeFormattingModule) {
     var VBFormattingHelpers = (function () {
         function VBFormattingHelpers() {
-            this.monthNamesEng = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-            this.dayNameEng = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            this.monthNamesEng = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+            this.dayNameEng = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
         }
         VBFormattingHelpers.prototype.getTimeSeconds = function (date) {
             if ((date !== undefined) && (date !== null)) {
