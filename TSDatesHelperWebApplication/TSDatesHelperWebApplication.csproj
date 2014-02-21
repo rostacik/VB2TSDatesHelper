@@ -65,8 +65,12 @@
       <DependentUpon>tsUnit.ts</DependentUpon>
     </Content>
     <Content Include="Scripts\tsUnit\tsUnit.ts" />
+    <TypeScriptCompile Include="VB_stuff\VBFormatNumber.ts" />
     <TypeScriptCompile Include="VB_stuff\VBFormatting.ts" />
     <Content Include="Styles\app.css" />
+    <Content Include="VB_stuff\VBFormatNumber.js">
+      <DependentUpon>VBFormatNumber.ts</DependentUpon>
+    </Content>
     <Content Include="VB_stuff\VBFormatting.js">
       <DependentUpon>VBFormatting.ts</DependentUpon>
     </Content>
@@ -119,5 +123,18 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptIncludeComments>true</TypeScriptIncludeComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptRemoveComments>True</TypeScriptRemoveComments>
+    <TypeScriptNoImplicitAny>True</TypeScriptNoImplicitAny>
+    <TypeScriptModuleKind>none</TypeScriptModuleKind>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptIncludeComments>false</TypeScriptIncludeComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>
