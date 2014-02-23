@@ -1,6 +1,4 @@
-﻿/// <reference path="vbformatnumber.ts" />
-
-module VBDateTimeFormattingModule {
+﻿module VBDateTimeFormattingModule {
     export interface IVBFormattingHelpers {
         /** Splits and returns just date */
         SplitDate(date: Date): {
@@ -34,12 +32,14 @@ module VBDateTimeFormattingModule {
         FormatHMS(seconds: number): string;
         /** converts seconds to date, returns HH:MM */
         FormatShortDuration(seconds: number): string;
+        /** give number nice format, optional parameter with number of digits */
+        FormatNumber(numberToFormat: number, fractionDigits?: number): string;
         /** weekday number, Sunday 1, Saturday 7 */
         VBWeekday(date: Date): number;
     }
 
     // Class
-    export class VBFormattingHelpers extends VBDateTimeFormattingModule.VBFormatNumber implements IVBFormattingHelpers {
+    export class VBFormattingHelpers implements IVBFormattingHelpers {
         /** helper object with english names */
         private monthNamesEng: Array<string>;
         /** days names in english - shorted */
@@ -47,8 +47,6 @@ module VBDateTimeFormattingModule {
 
         /** ctor */
         constructor() {
-            super();
-
             this.monthNamesEng = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
             this.dayNameEng = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
         }
@@ -245,7 +243,29 @@ module VBDateTimeFormattingModule {
             return this.FormatHMS(seconds).substr(0, 5);
         }
 
+        /** give number nice format, optional parameter with number of digits */
+        public FormatNumber(numberToFormat: number, fractionDigits?: number) {
+            if ((numberToFormat !== undefined) && (numberToFormat !== null)) {
+                if ((fractionDigits === undefined) || (fractionDigits === null)) {
+                    fractionDigits = 2; //default value
+                }
 
+                var numberToFormatStr = numberToFormat.toFixed(fractionDigits) + '';
+                var x = numberToFormatStr.split('.');
+                var x1 = x[0];
+                var x2 = x.length > 1 ? ',' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+                }
+
+                return x1 + x2;
+            }
+            else {
+                throw new Error('Parameter undefined or null.');
+            }
+        }
 
         /** weekday number, Sunday 1, Saturday 7 */
         public VBWeekday(date: Date) {
