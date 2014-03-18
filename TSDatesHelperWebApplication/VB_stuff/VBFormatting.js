@@ -189,6 +189,24 @@
                 throw new Error('Parameter undefined or null.');
             }
         };
+
+        VBFormattingHelpers.prototype.ScanNumber = function (value) {
+            if ((value !== undefined) && (value !== null)) {
+                if (Object.prototype.toString.call(value) === '[object Array]') {
+                    throw Error('unable to convert supplied array to number');
+                }
+
+                var outcome = Number(value);
+
+                if (isNaN(outcome)) {
+                    throw Error('unable to convert supplied object to number');
+                } else {
+                    return outcome;
+                }
+            } else {
+                throw Error('no value supplied');
+            }
+        };
         return VBFormattingHelpers;
     })();
     VBDateTimeFormattingModule.VBFormattingHelpers = VBFormattingHelpers;

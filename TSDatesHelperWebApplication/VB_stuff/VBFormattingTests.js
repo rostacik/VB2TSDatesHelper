@@ -213,63 +213,43 @@ var VBFormattingTestModule;
         };
 
         VBFormattingTests.prototype.testFormatWeekFeb = function () {
-            var res = this.target.FormatWeek(new Date("February 13, 1975 20:30:40"));
-
-            this.areIdentical(7, res);
+            this.areIdentical(7, this.target.FormatWeek(new Date("February 13, 1975 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekJan11975 = function () {
-            var res = this.target.FormatWeek(new Date("January 1, 1975 20:30:40"));
-
-            this.areIdentical(1, res);
+            this.areIdentical(1, this.target.FormatWeek(new Date("January 1, 1975 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekAugust23 = function () {
-            var res = this.target.FormatWeek(new Date("August 23, 2013 20:30:40"));
-
-            this.areIdentical(34, res);
+            this.areIdentical(34, this.target.FormatWeek(new Date("August 23, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekDecember22 = function () {
-            var res = this.target.FormatWeek(new Date("December 22, 2013 20:30:40"));
-
-            this.areIdentical(51, res);
+            this.areIdentical(51, this.target.FormatWeek(new Date("December 22, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekDecember27 = function () {
-            var res = this.target.FormatWeek(new Date("December 27, 2013 20:30:40"));
-
-            this.areIdentical(52, res);
+            this.areIdentical(52, this.target.FormatWeek(new Date("December 27, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekDecember31 = function () {
-            var res = this.target.FormatWeek(new Date("December 31, 2013 20:30:40"));
-
-            this.areIdentical(1, res);
+            this.areIdentical(1, this.target.FormatWeek(new Date("December 31, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekDecember30 = function () {
-            var res = this.target.FormatWeek(new Date("December 30, 2013 20:30:40"));
-
-            this.areIdentical(1, res);
+            this.areIdentical(1, this.target.FormatWeek(new Date("December 30, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekDecemberJan = function () {
-            var res = this.target.FormatWeek(new Date("January 1, 2014 20:30:40"));
-
-            this.areIdentical(1, res);
+            this.areIdentical(1, this.target.FormatWeek(new Date("January 1, 2014 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekDecember28 = function () {
-            var res = this.target.FormatWeek(new Date("December 28, 2013 20:30:40"));
-
-            this.areIdentical(52, res);
+            this.areIdentical(52, this.target.FormatWeek(new Date("December 28, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekDecember29 = function () {
-            var res = this.target.FormatWeek(new Date("December 29, 2013 20:30:40"));
-
-            this.areIdentical(52, res);
+            this.areIdentical(52, this.target.FormatWeek(new Date("December 29, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekUndefined = function () {
@@ -287,15 +267,11 @@ var VBFormattingTestModule;
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameSu = function () {
-            var res = this.target.FormatWeekDayName(new Date("December 29, 2013 20:30:40"));
-
-            this.areIdentical('So', res);
+            this.areIdentical('So', this.target.FormatWeekDayName(new Date("December 29, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameMo = function () {
-            var res = this.target.FormatWeekDayName(new Date("August 26, 2013 20:30:40"));
-
-            this.areIdentical('Mo', res);
+            this.areIdentical('Mo', this.target.FormatWeekDayName(new Date("August 26, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameUndefined = function () {
@@ -313,15 +289,11 @@ var VBFormattingTestModule;
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameSunday = function () {
-            var res = this.target.FormatLongWeekDayName(new Date("December 29, 2013 20:30:40"));
-
-            this.areIdentical('Sonntag', res);
+            this.areIdentical('Sonntag', this.target.FormatLongWeekDayName(new Date("December 29, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameMonday = function () {
-            var res = this.target.FormatLongWeekDayName(new Date("August 26, 2013 20:30:40"));
-
-            this.areIdentical('Montag', res);
+            this.areIdentical('Montag', this.target.FormatLongWeekDayName(new Date("August 26, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testFormatWeekDayNameMondaynull = function () {
@@ -339,33 +311,23 @@ var VBFormattingTestModule;
         };
 
         VBFormattingTests.prototype.testFormatHMS001 = function () {
-            var res = this.target.FormatHMS(1);
-
-            this.areIdentical('00:00:01', res);
+            this.areIdentical('00:00:01', this.target.FormatHMS(1));
         };
 
         VBFormattingTests.prototype.testFormatHMS010 = function () {
-            var res = this.target.FormatHMS(60);
-
-            this.areIdentical('00:01:00', res);
+            this.areIdentical('00:01:00', this.target.FormatHMS(60));
         };
 
         VBFormattingTests.prototype.testFormatHMS012 = function () {
-            var res = this.target.FormatHMS(62);
-
-            this.areIdentical('00:01:02', res);
+            this.areIdentical('00:01:02', this.target.FormatHMS(62));
         };
 
         VBFormattingTests.prototype.testFormatHMS123 = function () {
-            var res = this.target.FormatHMS(3723);
-
-            this.areIdentical('01:02:03', res);
+            this.areIdentical('01:02:03', this.target.FormatHMS(3723));
         };
 
         VBFormattingTests.prototype.testFormatHMS000 = function () {
-            var res = this.target.FormatHMS(0);
-
-            this.areIdentical('00:00:00', res);
+            this.areIdentical('00:00:00', this.target.FormatHMS(0));
         };
 
         VBFormattingTests.prototype.testFormatHMSnull = function () {
@@ -383,21 +345,15 @@ var VBFormattingTestModule;
         };
 
         VBFormattingTests.prototype.testFormatShortDuration0 = function () {
-            var res = this.target.FormatShortDuration(0);
-
-            this.areIdentical('00:00', res);
+            this.areIdentical('00:00', this.target.FormatShortDuration(0));
         };
 
         VBFormattingTests.prototype.testFormatShortDuration0102 = function () {
-            var res = this.target.FormatShortDuration(3723);
-
-            this.areIdentical('01:02', res);
+            this.areIdentical('01:02', this.target.FormatShortDuration(3723));
         };
 
         VBFormattingTests.prototype.testFormatShortDuration00 = function () {
-            var res = this.target.FormatShortDuration(1);
-
-            this.areIdentical('00:00', res);
+            this.areIdentical('00:00', this.target.FormatShortDuration(1));
         };
 
         VBFormattingTests.prototype.testFormatShortDuration01 = function () {
@@ -407,9 +363,7 @@ var VBFormattingTestModule;
         };
 
         VBFormattingTests.prototype.testFormatShortDuration012 = function () {
-            var res = this.target.FormatShortDuration(62);
-
-            this.areIdentical('00:01', res);
+            this.areIdentical('00:01', this.target.FormatShortDuration(62));
         };
 
         VBFormattingTests.prototype.testFormatShortDuration159 = function () {
@@ -433,27 +387,19 @@ var VBFormattingTestModule;
         };
 
         VBFormattingTests.prototype.testFormatNumber1 = function () {
-            var res = this.target.FormatNumber(1);
-
-            this.areIdentical('1,00', res);
+            this.areIdentical('1,00', this.target.FormatNumber(1));
         };
 
         VBFormattingTests.prototype.testFormatNumber1000 = function () {
-            var res = this.target.FormatNumber(1000);
-
-            this.areIdentical('1 000,00', res);
+            this.areIdentical('1 000,00', this.target.FormatNumber(1000));
         };
 
         VBFormattingTests.prototype.testFormatNumber99900630 = function () {
-            var res = this.target.FormatNumber(99900630);
-
-            this.areIdentical('99 900 630,00', res);
+            this.areIdentical('99 900 630,00', this.target.FormatNumber(99900630));
         };
 
         VBFormattingTests.prototype.testFormatNumber1dot3 = function () {
-            var res = this.target.FormatNumber(1.3);
-
-            this.areIdentical('1,30', res);
+            this.areIdentical('1,30', this.target.FormatNumber(1.3));
         };
 
         VBFormattingTests.prototype.testFormatNumberNull = function () {
@@ -471,9 +417,7 @@ var VBFormattingTestModule;
         };
 
         VBFormattingTests.prototype.testFormatNumber1dot36 = function () {
-            var res = this.target.FormatNumber(1.3, 6);
-
-            this.areIdentical('1,300000', res);
+            this.areIdentical('1,300000', this.target.FormatNumber(1.3, 6));
         };
 
         VBFormattingTests.prototype.testFormatNumberUndefinedOptionalParam = function () {
@@ -484,21 +428,15 @@ var VBFormattingTestModule;
         };
 
         VBFormattingTests.prototype.testVBWeekday2 = function () {
-            var res = this.target.VBWeekday(new Date("August 26, 2013 20:30:40"));
-
-            this.areIdentical(2, res);
+            this.areIdentical(2, this.target.VBWeekday(new Date("August 26, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testVBWeekday7 = function () {
-            var res = this.target.VBWeekday(new Date("August 24, 2013 20:30:40"));
-
-            this.areIdentical(7, res);
+            this.areIdentical(7, this.target.VBWeekday(new Date("August 24, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testVBWeekday1 = function () {
-            var res = this.target.VBWeekday(new Date("August 25, 2013 20:30:40"));
-
-            this.areIdentical(1, res);
+            this.areIdentical(1, this.target.VBWeekday(new Date("August 25, 2013 20:30:40")));
         };
 
         VBFormattingTests.prototype.testVBWeekdayNull = function () {
@@ -506,6 +444,106 @@ var VBFormattingTestModule;
             this.throws(function () {
                 _this.target.VBWeekday(null);
             });
+        };
+
+        VBFormattingTests.prototype.testScanNumberZero = function () {
+            this.areIdentical(0, this.target.ScanNumber(0));
+        };
+
+        VBFormattingTests.prototype.testScanNumberZeroFromString = function () {
+            this.areIdentical(0, this.target.ScanNumber(' 0 '));
+        };
+
+        VBFormattingTests.prototype.testScanNumberZeroFromString2 = function () {
+            this.areIdentical(0, this.target.ScanNumber(' 00000000 '));
+        };
+
+        VBFormattingTests.prototype.testScanNumberZeroFraction = function () {
+            this.areIdentical(0.123, this.target.ScanNumber(0.123));
+        };
+
+        VBFormattingTests.prototype.testScanNumberLongFraction = function () {
+            this.areIdentical(0.1111111111111111, this.target.ScanNumber(0.11111111111111111111111111111111111));
+        };
+
+        VBFormattingTests.prototype.testScanNumberLongFractionFromString = function () {
+            this.areIdentical(0.1111111111111111, this.target.ScanNumber('0.11111111111111111111111111111111111'));
+        };
+
+        VBFormattingTests.prototype.testScanNumberUndefined = function () {
+            var _this = this;
+            this.throws(function () {
+                _this.target.ScanNumber(undefined);
+            });
+        };
+
+        VBFormattingTests.prototype.testScanNumberNull = function () {
+            var _this = this;
+            this.throws(function () {
+                _this.target.ScanNumber(null);
+            });
+        };
+
+        VBFormattingTests.prototype.testScanNumberChars = function () {
+            var _this = this;
+            this.throws(function () {
+                _this.target.ScanNumber('abcd');
+            });
+        };
+
+        VBFormattingTests.prototype.testScanNumberCharsWithNumbers = function () {
+            var _this = this;
+            this.throws(function () {
+                _this.target.ScanNumber(' 0 a 0 9');
+            });
+        };
+
+        VBFormattingTests.prototype.testScanNumberCharsWithTrue = function () {
+            this.areIdentical(1, this.target.ScanNumber(true));
+        };
+
+        VBFormattingTests.prototype.testScanNumberCharsWithFalse = function () {
+            this.areIdentical(0, this.target.ScanNumber(false));
+        };
+
+        VBFormattingTests.prototype.testScanNumberCharsWithObject = function () {
+            var _this = this;
+            this.throws(function () {
+                _this.target.ScanNumber({});
+            });
+        };
+
+        VBFormattingTests.prototype.testScanNumberCharsWithObjectWithProps = function () {
+            var _this = this;
+            this.throws(function () {
+                _this.target.ScanNumber({ a: '12', b: 98 });
+            });
+        };
+
+        VBFormattingTests.prototype.testScanNumberCharsWithArray = function () {
+            var _this = this;
+            this.throws(function () {
+                _this.target.ScanNumber([]);
+            });
+        };
+
+        VBFormattingTests.prototype.testScanNumberCharsWithArrayWithObjs = function () {
+            var _this = this;
+            this.throws(function () {
+                _this.target.ScanNumber([1, 2, {}]);
+            });
+        };
+
+        VBFormattingTests.prototype.testScanNumberFromNegative = function () {
+            this.areIdentical(-12345.12345, this.target.ScanNumber(-12345.12345));
+        };
+
+        VBFormattingTests.prototype.testScanNumberLongPositive = function () {
+            this.areIdentical(234.45678466667783, this.target.ScanNumber(234.45678466667784459874213654987));
+        };
+
+        VBFormattingTests.prototype.testScanNumberLongPositiveFromString = function () {
+            this.areIdentical(234.45678466667783, this.target.ScanNumber('234.45678466667784459874213654987'));
         };
         return VBFormattingTests;
     })(tsUnit.TestClass);

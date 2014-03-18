@@ -36,6 +36,8 @@
         FormatNumber(numberToFormat: number, fractionDigits?: number): string;
         /** weekday number, Sunday 1, Saturday 7 */
         VBWeekday(date: Date): number;
+        /** convert value to number */
+        ScanNumber(value: any): number;
     }
 
     // Class
@@ -274,6 +276,31 @@
             }
             else {
                 throw new Error('Parameter undefined or null.');
+            }
+        }
+
+        /** 
+        try to convert value/object to number
+        @param value Object with value we need to convert to number
+        @returns number converted from supplied object
+        */
+        public ScanNumber(value: any): number {
+            //checking like this, since we can have also 0 passed in to "scan"
+            if ((value !== undefined) && (value !== null)) {
+                //is array?
+                if (Object.prototype.toString.call(value) === '[object Array]') {
+                    throw Error('unable to convert supplied array to number');
+                }
+
+                var outcome: number = Number(value);
+
+                if (isNaN(outcome)) {
+                    throw Error('unable to convert supplied object to number');
+                } else {
+                    return outcome;
+                }
+            } else {
+                throw Error('no value supplied');
             }
         }
     }
