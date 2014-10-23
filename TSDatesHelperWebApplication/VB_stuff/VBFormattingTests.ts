@@ -428,6 +428,33 @@ module VBFormattingTestModule {
             });
         }
 
+        testFormatNumberFirstZeroNumber() {
+            this.areIdentical("0,00", this.target.FormatNumber(0));
+        }
+
+        testFormatNumberFirstZeroString() {
+            this.areIdentical("0,00", this.target.FormatNumber('0'));
+        }
+
+        testFormatNumberFirstEmptyString() {
+            this.throws(() => {
+                this.target.FormatNumber('');
+            });
+        }
+
+        testFormatNumberBothEmptyString() {
+            this.throws(() => {
+                this.target.FormatNumber('','');
+            });
+        }
+
+
+        testFormatNumberCombinedObject() {
+            this.throws(() => {
+                this.target.FormatNumber('', '');
+            });
+        }
+
 //#endregion
 
         //#region VBWeekday tests

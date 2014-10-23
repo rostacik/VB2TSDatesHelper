@@ -458,6 +458,35 @@ var VBFormattingTestModule;
             });
         };
 
+        VBFormattingTests.prototype.testFormatNumberFirstZeroNumber = function () {
+            this.areIdentical("0,00", this.target.FormatNumber(0));
+        };
+
+        VBFormattingTests.prototype.testFormatNumberFirstZeroString = function () {
+            this.areIdentical("0,00", this.target.FormatNumber('0'));
+        };
+
+        VBFormattingTests.prototype.testFormatNumberFirstEmptyString = function () {
+            var _this = this;
+            this.throws(function () {
+                _this.target.FormatNumber('');
+            });
+        };
+
+        VBFormattingTests.prototype.testFormatNumberBothEmptyString = function () {
+            var _this = this;
+            this.throws(function () {
+                _this.target.FormatNumber('', '');
+            });
+        };
+
+        VBFormattingTests.prototype.testFormatNumberCombinedObject = function () {
+            var _this = this;
+            this.throws(function () {
+                _this.target.FormatNumber('', '');
+            });
+        };
+
         VBFormattingTests.prototype.testVBWeekday2 = function () {
             this.areIdentical(2, this.target.VBWeekday(new Date("August 26, 2013 20:30:40")));
         };

@@ -162,7 +162,7 @@
 
         VBFormattingHelpers.prototype.FormatNumber = function (numberToFormat, fractionDigits) {
             if (typeof fractionDigits === "undefined") { fractionDigits = 2; }
-            if (numberToFormat) {
+            if ((typeof fractionDigits !== "undefined") && (fractionDigits !== null)) {
                 numberToFormat = parseFloat(numberToFormat);
 
                 if (!isNaN(numberToFormat)) {

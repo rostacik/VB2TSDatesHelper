@@ -249,7 +249,7 @@
 
         /** give number nice format, optional parameter with number of digits */
         public FormatNumber(numberToFormat: any, fractionDigits: any = 2): string {
-            if (numberToFormat) {
+            if ((typeof fractionDigits !== "undefined") && (fractionDigits !== null)) {
                 numberToFormat = parseFloat(numberToFormat);
 
                 if (!isNaN(numberToFormat)) {
