@@ -161,24 +161,31 @@
         };
 
         VBFormattingHelpers.prototype.FormatNumber = function (numberToFormat, fractionDigits) {
-            if ((numberToFormat !== undefined) && (numberToFormat !== null)) {
-                if ((fractionDigits === undefined) || (fractionDigits === null)) {
-                    fractionDigits = 2;
+            if (typeof fractionDigits === "undefined") { fractionDigits = 2; }
+            if (numberToFormat) {
+                numberToFormat = parseFloat(numberToFormat);
+
+                if (!isNaN(numberToFormat)) {
+                    if (isNaN(fractionDigits)) {
+                        fractionDigits = parseFloat(fractionDigits);
+                    }
+
+                    var numberToFormatStr = numberToFormat.toFixed(fractionDigits) + '';
+                    var x = numberToFormatStr.split('.');
+                    var x1 = x[0];
+                    var x2 = x.length > 1 ? ',' + x[1] : '';
+                    var rgx = /(\d+)(\d{3})/;
+
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+                    }
+
+                    return x1 + x2;
+                } else {
+                    throw 'object supplied was not number';
                 }
-
-                var numberToFormatStr = numberToFormat.toFixed(fractionDigits) + '';
-                var x = numberToFormatStr.split('.');
-                var x1 = x[0];
-                var x2 = x.length > 1 ? ',' + x[1] : '';
-                var rgx = /(\d+)(\d{3})/;
-
-                while (rgx.test(x1)) {
-                    x1 = x1.replace(rgx, '$1' + ' ' + '$2');
-                }
-
-                return x1 + x2;
             } else {
-                throw new Error('Parameter undefined or null.');
+                throw 'parameter undefined or null.';
             }
         };
 
@@ -186,25 +193,25 @@
             if ((date !== undefined) && (date !== null)) {
                 return date.getDay() + 1;
             } else {
-                throw new Error('Parameter undefined or null.');
+                throw 'parameter undefined or null.';
             }
         };
 
         VBFormattingHelpers.prototype.ScanNumber = function (value) {
             if ((value !== undefined) && (value !== null)) {
                 if (Object.prototype.toString.call(value) === '[object Array]') {
-                    throw Error('unable to convert supplied array to number');
+                    throw 'unable to convert supplied array to number';
                 }
 
                 var outcome = Number(value);
 
                 if (isNaN(outcome)) {
-                    throw Error('unable to convert supplied object to number');
+                    throw 'unable to convert supplied object to number';
                 } else {
                     return outcome;
                 }
             } else {
-                throw Error('no value supplied');
+                throw 'no value supplied';
             }
         };
         return VBFormattingHelpers;

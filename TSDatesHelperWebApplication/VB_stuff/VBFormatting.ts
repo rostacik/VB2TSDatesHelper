@@ -34,6 +34,8 @@
         FormatShortDuration(seconds: number): string;
         /** give number nice format, optional parameter with number of digits */
         FormatNumber(numberToFormat: number, fractionDigits?: number): string;
+        /** give number nice format, optional parameter with number of digits */
+        FormatNumber(numberToFormat: string, fractionDigits?: string): string;
         /** weekday number, Sunday 1, Saturday 7 */
         VBWeekday(date: Date): number;
         /** convert value to number */
@@ -180,7 +182,7 @@
         }
 
         /** WeekdayName(Weekday(d, 0), true, 0) */
-        public FormatWeekDayName(date: Date) {
+        public FormatWeekDayName(date: Date): string {
             if ((date !== undefined) && (date !== null)) {
                 return this.dayNameEng[date.getDay()].substr(0, 2);
             }
@@ -190,7 +192,7 @@
         }
 
         /** WeekdayName(Weekday(d, 0), false, 0) */
-        public FormatLongWeekDayName(date: Date) {
+        public FormatLongWeekDayName(date: Date): string {
             if ((date !== undefined) && (date !== null)) {
                 return this.dayNameEng[date.getDay()];
             }
@@ -246,40 +248,47 @@
         }
 
         /** give number nice format, optional parameter with number of digits */
-        public FormatNumber(numberToFormat: number, fractionDigits?: number) {
-            if ((numberToFormat !== undefined) && (numberToFormat !== null)) {
-                if ((fractionDigits === undefined) || (fractionDigits === null)) {
-                    fractionDigits = 2; //default value
+        public FormatNumber(numberToFormat: any, fractionDigits: any = 2): string {
+            if (numberToFormat) {
+                numberToFormat = parseFloat(numberToFormat);
+
+                if (!isNaN(numberToFormat)) {
+                    if (isNaN(fractionDigits)) {
+                        fractionDigits = parseFloat(fractionDigits);
+                    }
+
+                    var numberToFormatStr = numberToFormat.toFixed(fractionDigits) + '';
+                    var x = numberToFormatStr.split('.');
+                    var x1 = x[0];
+                    var x2 = x.length > 1 ? ',' + x[1] : '';
+                    var rgx = /(\d+)(\d{3})/;
+
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+                    }
+
+                    return x1 + x2;
                 }
-
-                var numberToFormatStr = numberToFormat.toFixed(fractionDigits) + '';
-                var x = numberToFormatStr.split('.');
-                var x1 = x[0];
-                var x2 = x.length > 1 ? ',' + x[1] : '';
-                var rgx = /(\d+)(\d{3})/;
-
-                while (rgx.test(x1)) {
-                    x1 = x1.replace(rgx, '$1' + ' ' + '$2');
+                else {
+                    throw 'object supplied was not number';
                 }
-
-                return x1 + x2;
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'parameter undefined or null.';
             }
         }
 
         /** weekday number, Sunday 1, Saturday 7 */
-        public VBWeekday(date: Date) {
+        public VBWeekday(date: Date): number {
             if ((date !== undefined) && (date !== null)) {
                 return date.getDay() + 1;
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'parameter undefined or null.';
             }
         }
 
-        /** 
+        /**
         try to convert value/object to number
         @param value Object with value we need to convert to number
         @returns number converted from supplied object
@@ -289,18 +298,18 @@
             if ((value !== undefined) && (value !== null)) {
                 //is array?
                 if (Object.prototype.toString.call(value) === '[object Array]') {
-                    throw Error('unable to convert supplied array to number');
+                    throw 'unable to convert supplied array to number';
                 }
 
                 var outcome: number = Number(value);
 
                 if (isNaN(outcome)) {
-                    throw Error('unable to convert supplied object to number');
+                    throw 'unable to convert supplied object to number';
                 } else {
                     return outcome;
                 }
             } else {
-                throw Error('no value supplied');
+                throw 'no value supplied';
             }
         }
     }

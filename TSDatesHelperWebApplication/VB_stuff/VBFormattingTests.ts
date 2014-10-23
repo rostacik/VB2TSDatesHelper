@@ -30,7 +30,8 @@ module VBFormattingTestModule {
         testSplitDateUndefined() {
             this.throws(() => { this.target.SplitDate(undefined); });
         }
-        //#endregion
+
+//#endregion
 
         //#region SplitTime tests
         testSplitTime() {
@@ -48,7 +49,8 @@ module VBFormattingTestModule {
         testSplitTimeUndefined() {
             this.throws(() => { this.target.SplitTime(undefined); });
         }
-        //#endregion
+
+//#endregion
 
         //#region FormatLongDate tests
         testFormatLongDate1january2013() {
@@ -70,7 +72,8 @@ module VBFormattingTestModule {
         testFormatLongDateUndefined() {
             this.throws(() => { this.target.FormatLongDate(undefined); });
         }
-        //#endregion
+
+//#endregion
 
         //#region FormatShortDate tests
         testFormatDate1321975() {
@@ -86,7 +89,8 @@ module VBFormattingTestModule {
         testFormatShortDateNull() {
             this.throws(() => { this.target.FormatShortDate(null); });
         }
-        //#endregion
+
+//#endregion
 
         //#region FormatShortDateAndTime tests
         testFormatDateAndTime1321975111319() {
@@ -114,7 +118,8 @@ module VBFormattingTestModule {
         testFormatShortDateAndTimeNull() {
             this.throws(() => { this.target.FormatShortDateAndTime(null); });
         }
-        //#endregion
+
+//#endregion
 
         //#region FormatShortDate tests
         testFormatTime111319() {
@@ -149,7 +154,8 @@ module VBFormattingTestModule {
         testFormatTimeUndefined() {
             this.throws(() => { this.target.FormatLongTime(undefined); });
         }
-        //#endregion
+
+//#endregion
 
         //#region FormatShortTime tests
         testFormatShortTime() {
@@ -177,7 +183,8 @@ module VBFormattingTestModule {
         testFormatShortTimeUndefined() {
             this.throws(() => { this.target.FormatShortTime(undefined); });
         }
-        //#endregion
+
+//#endregion
 
         //#region FormatWeek tests
         testFormatWeekFeb() {
@@ -271,7 +278,8 @@ module VBFormattingTestModule {
                 this.target.FormatLongWeekDayName(undefined);
             });
         }
-        //#endregion
+
+//#endregion
 
         //#region FormatHMS tests
         testFormatHMS001() {
@@ -305,7 +313,8 @@ module VBFormattingTestModule {
                 this.target.FormatHMS(undefined);
             });
         }
-        //#endregion
+
+//#endregion
 
         //#region FormatShortDuration tests
         testFormatShortDuration0() {
@@ -347,7 +356,8 @@ module VBFormattingTestModule {
                 this.target.FormatShortDuration(null);
             });
         }
-        //#endregion
+
+//#endregion
 
         //#region FormatNumber tests
         testFormatNumber1() {
@@ -387,7 +397,38 @@ module VBFormattingTestModule {
                 this.target.FormatNumber(undefined, 4);
             });
         }
-        //#endregion
+
+        testFormatNuberFirstStringParam() {
+            this.areIdentical("132 199,00", this.target.FormatNumber("132199,00"));
+        }
+
+        testFormatNuberFirstStringParamWithSecondParamNumber() {
+            this.areIdentical("132 199,00", this.target.FormatNumber("132199,00", 2));
+        }
+
+        testFormatNuberFirstStringParamWithSecondParamString() {
+            this.areIdentical("132 199,00", this.target.FormatNumber("132199,00", '2'));
+        }
+
+        testFormatNuberFirstStringParamNoTrailingZeros() {
+            this.areIdentical("132 199,00", this.target.FormatNumber("132199"));
+        }
+
+        testFormatNuberFirstStringParamNoTrailingZerosWithSecondParamNumber() {
+            this.areIdentical("132 199,00", this.target.FormatNumber("132199", 2));
+        }
+
+        testFormatNuberFirstStringParamNoTrailingZerosWithSecondParamString() {
+            this.areIdentical("132 199,00", this.target.FormatNumber("132199", '2'));
+        }
+
+        testFormatNumberStringAsFirstParam() {
+            this.throws(() => {
+                this.target.FormatNumber('hahaha');
+            });
+        }
+
+//#endregion
 
         //#region VBWeekday tests
         testVBWeekday2() {

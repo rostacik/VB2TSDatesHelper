@@ -427,6 +427,37 @@ var VBFormattingTestModule;
             });
         };
 
+        VBFormattingTests.prototype.testFormatNuberFirstStringParam = function () {
+            this.areIdentical("132 199,00", this.target.FormatNumber("132199,00"));
+        };
+
+        VBFormattingTests.prototype.testFormatNuberFirstStringParamWithSecondParamNumber = function () {
+            this.areIdentical("132 199,00", this.target.FormatNumber("132199,00", 2));
+        };
+
+        VBFormattingTests.prototype.testFormatNuberFirstStringParamWithSecondParamString = function () {
+            this.areIdentical("132 199,00", this.target.FormatNumber("132199,00", '2'));
+        };
+
+        VBFormattingTests.prototype.testFormatNuberFirstStringParamNoTrailingZeros = function () {
+            this.areIdentical("132 199,00", this.target.FormatNumber("132199"));
+        };
+
+        VBFormattingTests.prototype.testFormatNuberFirstStringParamNoTrailingZerosWithSecondParamNumber = function () {
+            this.areIdentical("132 199,00", this.target.FormatNumber("132199", 2));
+        };
+
+        VBFormattingTests.prototype.testFormatNuberFirstStringParamNoTrailingZerosWithSecondParamString = function () {
+            this.areIdentical("132 199,00", this.target.FormatNumber("132199", '2'));
+        };
+
+        VBFormattingTests.prototype.testFormatNumberStringAsFirstParam = function () {
+            var _this = this;
+            this.throws(function () {
+                _this.target.FormatNumber('hahaha');
+            });
+        };
+
         VBFormattingTests.prototype.testVBWeekday2 = function () {
             this.areIdentical(2, this.target.VBWeekday(new Date("August 26, 2013 20:30:40")));
         };
