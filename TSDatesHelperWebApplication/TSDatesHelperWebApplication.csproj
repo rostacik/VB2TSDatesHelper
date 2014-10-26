@@ -67,20 +67,8 @@
     <Content Include="Scripts\tsUnit\tsUnit.ts" />
     <TypeScriptCompile Include="VB_stuff\VBFormatting.ts" />
     <Content Include="Styles\app.css" />
-    <Content Include="VB_stuff\VBFormatting.js">
-      <DependentUpon>VBFormatting.ts</DependentUpon>
-    </Content>
-    <Content Include="VB_stuff\VBFormatting.js.map">
-      <DependentUpon>VBFormatting.ts</DependentUpon>
-    </Content>
     <TypeScriptCompile Include="VB_stuff\VBFormattingTests.ts" />
     <Content Include="VB_stuff\VBFormattingTests.html" />
-    <Content Include="VB_stuff\VBFormattingTests.js">
-      <DependentUpon>VBFormattingTests.ts</DependentUpon>
-    </Content>
-    <Content Include="VB_stuff\VBFormattingTests.js.map">
-      <DependentUpon>VBFormattingTests.ts</DependentUpon>
-    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
