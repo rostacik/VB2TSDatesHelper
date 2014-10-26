@@ -106,3 +106,5 @@ Generated_Code #added for RIA/Silverlight projects
 _UpgradeReport_Files/
 Backup*/
 UpgradeLog*.XML
+/TSDatesHelperWebApplication/VB_stuff/*.js
+/TSDatesHelperWebApplication/VB_stuff/*.map
