@@ -3,15 +3,15 @@
 module VBDateTimeFormattingModule {
     // Class
     export class VBFormattingHelpers implements IVBFormattingHelpers {
-        /** helper object with english names */
-        private monthNamesEng: Array<string>;
-        /** days names in english - shorted */
-        private dayNameEng: Array<string>;
+        /** helper object with DE names */
+        private monthNamesDE: Array<string>;
+        /** days names in DE - shorted */
+        private dayNameDE: Array<string>;
 
         /** ctor */
         constructor() {
-            this.monthNamesEng = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
-            this.dayNameEng = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+            this.monthNamesDE = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+            this.dayNameDE = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
         }
 
         /**
@@ -94,7 +94,7 @@ module VBDateTimeFormattingModule {
             if ((date !== undefined) && (date !== null)) {
                 var parsedDate = this.SplitDate(date);
 
-                return parsedDate.date + '. ' + this.monthNamesEng[parsedDate.month]
+                return parsedDate.date + '. ' + this.monthNamesDE[parsedDate.month]
                     + ' ' + parsedDate.year;
             }
             else {
@@ -178,7 +178,7 @@ module VBDateTimeFormattingModule {
         */
         public FormatWeekDayName(date: Date): string {
             if ((date !== undefined) && (date !== null)) {
-                return this.dayNameEng[date.getDay()].substr(0, 2);
+                return this.dayNameDE[date.getDay()].substr(0, 2);
             }
             else {
                 throw 'Parameter undefined or null.';
@@ -192,7 +192,7 @@ module VBDateTimeFormattingModule {
         */
         public FormatLongWeekDayName(date: Date): string {
             if ((date !== undefined) && (date !== null)) {
-                return this.dayNameEng[date.getDay()];
+                return this.dayNameDE[date.getDay()];
             }
             else {
                 throw 'Parameter undefined or null.';
