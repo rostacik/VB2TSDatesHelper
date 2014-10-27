@@ -1,47 +1,6 @@
-﻿module VBDateTimeFormattingModule {
-    export interface IVBFormattingHelpers {
-        /** Splits and returns just date */
-        SplitDate(date: Date): {
-            date: number;
-            month: number;
-            year: number;
-        };
-        /** Splits and returns just time */
-        SplitTime(dateTime: Date): {
-            hours: number;
-            minutes: number;
-            seconds: number;
-        };
-        /** same as FormatDateTime(d, 0) */
-        FormatShortDateAndTime(date: Date): string;
-        /** same as FormatDateTime(d, 1) */
-        FormatLongDate(date: Date): string;
-        /** same as FormatDateTime(d, 2) */
-        FormatShortDate(date: Date): string;
-        /** same as FormatDateTime(d, 3) */
-        FormatLongTime(dateTime: Date): string;
-        /** same as FormatDateTime(d, 4) */
-        FormatShortTime(dateTime: Date): string;
-        /** DatePart ("ww", d, 2, 2) */
-        FormatWeek(date: Date): number;
-        /** WeekdayName(Weekday(d, 0), true, 0) */
-        FormatWeekDayName(date: Date): string;
-        /** WeekdayName(Weekday(d, 0), false, 0) */
-        FormatLongWeekDayName(date: Date): string;
-        /** returns time from supplied seconds - HH:MM:SS */
-        FormatHMS(seconds: number): string;
-        /** converts seconds to date, returns HH:MM */
-        FormatShortDuration(seconds: number): string;
-        /** give number nice format, optional parameter with number of digits */
-        FormatNumber(numberToFormat: number, fractionDigits?: number): string;
-        /** give number nice format, optional parameter with number of digits */
-        FormatNumber(numberToFormat: string, fractionDigits?: string): string;
-        /** weekday number, Sunday 1, Saturday 7 */
-        VBWeekday(date: Date): number;
-        /** convert value to number */
-        ScanNumber(value: any): number;
-    }
+﻿/// <reference path="vbformatting.d.ts" />
 
+module VBDateTimeFormattingModule {
     // Class
     export class VBFormattingHelpers implements IVBFormattingHelpers {
         /** helper object with english names */
@@ -63,11 +22,15 @@
                 return (date.getSeconds() + (date.getMinutes() * 60) + (date.getHours() * 60 * 60));
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'Parameter undefined or null.';
             }
         }
 
-        /** Splits and returns just date */
+        /**
+        * Splits and returns just date
+        * @param date Date to be parsed
+        * @return parsed object with numbers for date, month, year
+        */
         public SplitDate(date: Date): { date: number; month: number; year: number } {
             if ((date !== undefined) && (date !== null)) {
                 var currDate = date.getDate();
@@ -77,11 +40,15 @@
                 return { date: currDate, month: currMonth, year: currYear };
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw'Parameter undefined or null.';
             }
         }
 
-        /** Splits and returns just time */
+        /**
+        * Splits and returns just time
+        * @param date Date to be parsed
+        * @return parsed object with numbers hours, minutes, seconds
+        */
         public SplitTime(dateTime: Date): { hours: number; minutes: number; seconds: number } {
             if ((dateTime !== undefined) && (dateTime !== null)) {
                 var currHours = dateTime.getHours();
@@ -91,12 +58,15 @@
                 return { hours: currHours, minutes: currMinutes, seconds: currSeconds };
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'Parameter undefined or null.';
             }
         }
 
-        /** same as FormatDateTime(d, 0)
-        0 = vbGeneralDate - Default. Returns date: mm/dd/yy (/ or not depends on current culture) and time if specified: hh:mm:ss PM/AM.
+        /**
+        * same as FormatDateTime(d, 0)
+        * 0 = vbGeneralDate - Default. Returns date: mm/dd/yy (/ or not depends on current culture) and time if specified: hh:mm:ss PM/AM.
+        * @param date Date to be parsed
+        * @return formatted string
         */
         public FormatShortDateAndTime(date: Date): string {
             if ((date !== undefined) && (date !== null)) {
@@ -111,11 +81,15 @@
                 }
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'Parameter undefined or null.';
             }
         }
 
-        /** same as FormatDateTime(d, 1) */
+        /**
+        * same as FormatDateTime(d, 1)
+        * @param date Date to be parsed
+        * @return formatted string
+        */
         public FormatLongDate(date: Date): string {
             if ((date !== undefined) && (date !== null)) {
                 var parsedDate = this.SplitDate(date);
@@ -124,11 +98,15 @@
                     + ' ' + parsedDate.year;
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'Parameter undefined or null.';
             }
         }
 
-        /** same as FormatDateTime(d, 2) */
+        /**
+        * same as FormatDateTime(d, 2)
+        * @param date Date to be parsed
+        * @return formatted string
+        */
         public FormatShortDate(date: Date): string {
             if ((date !== undefined) && (date !== null)) {
                 var parsedDate = this.SplitDate(date);
@@ -137,31 +115,43 @@
                     + parsedDate.year;
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'Parameter undefined or null.';
             }
         }
 
-        /** same as FormatDateTime(d, 3) */
+        /**
+        * same as FormatDateTime(d, 3)
+        * @param dateTime Date and Time to be parsed
+        * @return formatted string
+        */
         public FormatLongTime(dateTime: Date): string {
             if ((dateTime !== undefined) && (dateTime !== null)) {
                 return this.FormatHMS(this.getTimeSeconds(dateTime));
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'Parameter undefined or null.';
             }
         }
 
-        /** same as FormatDateTime(d, 4) */
+        /**
+        * same as FormatDateTime(d, 4)
+        * @param dateTime Date and Time to be parsed
+        * @return formatted string
+        */
         public FormatShortTime(dateTime: Date): string {
             if ((dateTime !== undefined) && (dateTime !== null)) {
                 return this.FormatShortDuration(this.getTimeSeconds(dateTime));
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'Parameter undefined or null.';
             }
         }
 
-        /** DatePart ("ww", d, 2, 2) */
+        /**
+        * same as DatePart ("ww", d, 2, 2)
+        * @param date Date to be parsed
+        * @return formatted number
+        */
         public FormatWeek(date: Date): number {
             if ((date !== undefined) && (date !== null)) {
                 //stolen from jQuery UI, shame on me....
@@ -177,31 +167,43 @@
                 return Math.floor(Math.round((time - checkDate.getTime()) / 86400000) / 7) + 1;
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'Parameter undefined or null.';
             }
         }
 
-        /** WeekdayName(Weekday(d, 0), true, 0) */
+        /**
+        * same as WeekdayName(Weekday(d, 0), true, 0)
+        * @param date Date to be parsed
+        * @return formatted string
+        */
         public FormatWeekDayName(date: Date): string {
             if ((date !== undefined) && (date !== null)) {
                 return this.dayNameEng[date.getDay()].substr(0, 2);
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'Parameter undefined or null.';
             }
         }
 
-        /** WeekdayName(Weekday(d, 0), false, 0) */
+        /**
+        * same as WeekdayName(Weekday(d, 0), false, 0)
+        * @param date Date to be parsed
+        * @return formatted string
+        */
         public FormatLongWeekDayName(date: Date): string {
             if ((date !== undefined) && (date !== null)) {
                 return this.dayNameEng[date.getDay()];
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'Parameter undefined or null.';
             }
         }
 
-        /** returns time from supplied seconds - HH:MM:SS */
+        /**
+        * returns time from supplied seconds - HH:MM:SS
+        * @param seconds Seconds to be parsed
+        * @return formatted string
+        */
         public FormatHMS(seconds: number): string {
             if ((seconds !== undefined) && (seconds !== null)) {
                 var hoursStr: string, minutesStr: string, secondsStr: string;
@@ -238,16 +240,25 @@
                 return (hoursStr + ':' + minutesStr + ':' + secondsStr);
             }
             else {
-                throw new Error('Parameter undefined or null.');
+                throw 'Parameter undefined or null.';
             }
         }
 
-        /** converts seconds to date, returns HH:MM */
+        /**
+        * converts seconds to date, returns HH:MM
+        * @param seconds Seconds to be parsed
+        * @return formatted string
+        */
         public FormatShortDuration(seconds: number): string {
             return this.FormatHMS(seconds).substr(0, 5);
         }
 
-        /** give number nice format, optional parameter with number of digits */
+        /**
+        * give number nice format, optional parameter with number of digits
+        * @param numberToFormat Number of string to be formatted
+        * @param fractionDigits Format to certain number of fractions - optional
+        * @return formatted string
+        */
         public FormatNumber(numberToFormat: any, fractionDigits: any = 2): string {
             if ((typeof fractionDigits !== "undefined") && (fractionDigits !== null)) {
                 numberToFormat = parseFloat(numberToFormat);
@@ -278,7 +289,11 @@
             }
         }
 
-        /** weekday number, Sunday 1, Saturday 7 */
+        /**
+        * weekday number, Sunday 1, Saturday 7
+        * @param date Date to be parsed
+        * @return number of the day
+        */
         public VBWeekday(date: Date): number {
             if ((date !== undefined) && (date !== null)) {
                 return date.getDay() + 1;
@@ -289,9 +304,9 @@
         }
 
         /**
-        try to convert value/object to number
-        @param value Object with value we need to convert to number
-        @returns number converted from supplied object
+        * convert value to number
+        * @param value Object that needs to be converted to bumber
+        * @return number from input
         */
         public ScanNumber(value: any): number {
             //checking like this, since we can have also 0 passed in to "scan"

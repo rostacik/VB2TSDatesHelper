@@ -65,6 +65,7 @@
       <DependentUpon>tsUnit.ts</DependentUpon>
     </Content>
     <Content Include="Scripts\tsUnit\tsUnit.ts" />
+    <TypeScriptCompile Include="VB_stuff\VBFormatting.d.ts" />
     <TypeScriptCompile Include="VB_stuff\VBFormatting.ts" />
     <Content Include="Styles\app.css" />
     <TypeScriptCompile Include="VB_stuff\VBFormattingTests.ts" />
