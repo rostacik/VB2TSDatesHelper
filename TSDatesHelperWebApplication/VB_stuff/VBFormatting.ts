@@ -1,4 +1,5 @@
-﻿/// <reference path="vbformatting.d.ts" />
+﻿/// <reference path="utils.ts" />
+/// <reference path="vbformatting.d.ts" />
 
 module VBDateTimeFormattingModule {
     // Class
@@ -18,7 +19,7 @@ module VBDateTimeFormattingModule {
         Returns time from start of the day in seconds
         */
         private getTimeSeconds(date: Date): number {
-            if ((date !== undefined) && (date !== null)) {
+            if (date) {
                 return (date.getSeconds() + (date.getMinutes() * 60) + (date.getHours() * 60 * 60));
             }
             else {
@@ -32,7 +33,7 @@ module VBDateTimeFormattingModule {
         * @return parsed object with numbers for date, month, year
         */
         public SplitDate(date: Date): { date: number; month: number; year: number } {
-            if ((date !== undefined) && (date !== null)) {
+            if (date) {
                 var currDate = date.getDate();
                 var currMonth = date.getMonth();
                 var currYear = date.getFullYear();
@@ -40,7 +41,7 @@ module VBDateTimeFormattingModule {
                 return { date: currDate, month: currMonth, year: currYear };
             }
             else {
-                throw'Parameter undefined or null.';
+                throw 'Parameter undefined or null.';
             }
         }
 
@@ -50,7 +51,7 @@ module VBDateTimeFormattingModule {
         * @return parsed object with numbers hours, minutes, seconds
         */
         public SplitTime(dateTime: Date): { hours: number; minutes: number; seconds: number } {
-            if ((dateTime !== undefined) && (dateTime !== null)) {
+            if (dateTime) {
                 var currHours = dateTime.getHours();
                 var currMinutes = dateTime.getMinutes();
                 var currSeconds = dateTime.getSeconds();
@@ -69,7 +70,7 @@ module VBDateTimeFormattingModule {
         * @return formatted string
         */
         public FormatShortDateAndTime(date: Date): string {
-            if ((date !== undefined) && (date !== null)) {
+            if (date) {
                 var parsedDate: string = this.FormatShortDate(date);
                 var parsedTime: string = this.FormatLongTime(date);
 
@@ -91,7 +92,7 @@ module VBDateTimeFormattingModule {
         * @return formatted string
         */
         public FormatLongDate(date: Date): string {
-            if ((date !== undefined) && (date !== null)) {
+            if (date) {
                 var parsedDate = this.SplitDate(date);
 
                 return parsedDate.date + '. ' + this.monthNamesDE[parsedDate.month]
@@ -108,7 +109,7 @@ module VBDateTimeFormattingModule {
         * @return formatted string
         */
         public FormatShortDate(date: Date): string {
-            if ((date !== undefined) && (date !== null)) {
+            if (date) {
                 var parsedDate = this.SplitDate(date);
 
                 return parsedDate.date + '. ' + (parsedDate.month + 1) + '. '
@@ -125,7 +126,7 @@ module VBDateTimeFormattingModule {
         * @return formatted string
         */
         public FormatLongTime(dateTime: Date): string {
-            if ((dateTime !== undefined) && (dateTime !== null)) {
+            if (dateTime) {
                 return this.FormatHMS(this.getTimeSeconds(dateTime));
             }
             else {
@@ -139,7 +140,7 @@ module VBDateTimeFormattingModule {
         * @return formatted string
         */
         public FormatShortTime(dateTime: Date): string {
-            if ((dateTime !== undefined) && (dateTime !== null)) {
+            if (dateTime) {
                 return this.FormatShortDuration(this.getTimeSeconds(dateTime));
             }
             else {
@@ -153,7 +154,7 @@ module VBDateTimeFormattingModule {
         * @return formatted number
         */
         public FormatWeek(date: Date): number {
-            if ((date !== undefined) && (date !== null)) {
+            if (date) {
                 //stolen from jQuery UI, shame on me....
                 var time: number, checkDate = new Date(date.getTime());
 
@@ -177,7 +178,7 @@ module VBDateTimeFormattingModule {
         * @return formatted string
         */
         public FormatWeekDayName(date: Date): string {
-            if ((date !== undefined) && (date !== null)) {
+            if (date) {
                 return this.dayNameDE[date.getDay()].substr(0, 2);
             }
             else {
@@ -191,7 +192,7 @@ module VBDateTimeFormattingModule {
         * @return formatted string
         */
         public FormatLongWeekDayName(date: Date): string {
-            if ((date !== undefined) && (date !== null)) {
+            if (date) {
                 return this.dayNameDE[date.getDay()];
             }
             else {
@@ -205,7 +206,7 @@ module VBDateTimeFormattingModule {
         * @return formatted string
         */
         public FormatHMS(seconds: number): string {
-            if ((seconds !== undefined) && (seconds !== null)) {
+            if ((typeof seconds !== "undefined") && (seconds !== null)) {
                 var hoursStr: string, minutesStr: string, secondsStr: string;
 
                 var hours = Math.floor(seconds / (60 * 60));
@@ -250,7 +251,12 @@ module VBDateTimeFormattingModule {
         * @return formatted string
         */
         public FormatShortDuration(seconds: number): string {
-            return this.FormatHMS(seconds).substr(0, 5);
+            if ((typeof seconds !== "undefined") && (seconds !== null)) {
+                return this.FormatHMS(seconds).substr(0, 5);
+            }
+            else {
+                throw 'Parameter undefined or null.';
+            }
         }
 
         /**
@@ -260,12 +266,18 @@ module VBDateTimeFormattingModule {
         * @return formatted string
         */
         public FormatNumber(numberToFormat: any, fractionDigits: any = 2): string {
-            if ((typeof fractionDigits !== "undefined") && (fractionDigits !== null)) {
+            if ((typeof numberToFormat !== "undefined") && (numberToFormat !== null)) {
+
+                if ((typeof numberToFormat) === "string") {
+                    numberToFormat = numberToFormat.replace(',', '.');
+                    numberToFormat = numberToFormat.replace(/ /g, '');
+                }
+
                 numberToFormat = parseFloat(numberToFormat);
 
                 if (!isNaN(numberToFormat)) {
                     if (isNaN(fractionDigits)) {
-                        fractionDigits = parseFloat(fractionDigits);
+                        throw 'second object supplied was not number';
                     }
 
                     var numberToFormatStr = numberToFormat.toFixed(fractionDigits) + '';
@@ -295,7 +307,7 @@ module VBDateTimeFormattingModule {
         * @return number of the day
         */
         public VBWeekday(date: Date): number {
-            if ((date !== undefined) && (date !== null)) {
+            if (date) {
                 return date.getDay() + 1;
             }
             else {
@@ -309,23 +321,7 @@ module VBDateTimeFormattingModule {
         * @return number from input
         */
         public ScanNumber(value: any): number {
-            //checking like this, since we can have also 0 passed in to "scan"
-            if ((value !== undefined) && (value !== null)) {
-                //is array?
-                if (Object.prototype.toString.call(value) === '[object Array]') {
-                    throw 'unable to convert supplied array to number';
-                }
-
-                var outcome: number = Number(value);
-
-                if (isNaN(outcome)) {
-                    throw 'unable to convert supplied object to number';
-                } else {
-                    return outcome;
-                }
-            } else {
-                throw 'no value supplied';
-            }
+            return utilsModule.ScanNumber(value);
         }
     }
 }

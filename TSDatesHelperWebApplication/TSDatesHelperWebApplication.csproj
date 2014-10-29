@@ -58,18 +58,25 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\tsUnit\tsUnit.js">
-      <DependentUpon>tsUnit.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\tsUnit\tsUnit.min.js">
-      <DependentUpon>tsUnit.ts</DependentUpon>
-    </Content>
-    <Content Include="Scripts\tsUnit\tsUnit.ts" />
+    <TypeScriptCompile Include="VB_stuff\utils.ts" />
     <TypeScriptCompile Include="VB_stuff\VBFormatting.d.ts" />
     <TypeScriptCompile Include="VB_stuff\VBFormatting.ts" />
-    <Content Include="Styles\app.css" />
-    <TypeScriptCompile Include="VB_stuff\VBFormattingTests.ts" />
     <Content Include="VB_stuff\VBFormattingTests.html" />
+    <Content Include="VB_stuff_Tests\FormatHMSTests.js" />
+    <Content Include="VB_stuff_Tests\FormatLongTimeTests.js" />
+    <Content Include="VB_stuff_Tests\FormatLongWeekDayNameTests.js" />
+    <Content Include="VB_stuff_Tests\FormatNumberTests.js" />
+    <Content Include="VB_stuff_Tests\FormatShortDateAndTimeTests.js" />
+    <Content Include="VB_stuff_Tests\FormatLongDateTests.js" />
+    <Content Include="VB_stuff_Tests\FormatShortDateTests.js" />
+    <Content Include="VB_stuff_Tests\FormatShortDurationTests.js" />
+    <Content Include="VB_stuff_Tests\FormatShortTimeTests.js" />
+    <Content Include="VB_stuff_Tests\FormatWeekDayNameTests.js" />
+    <Content Include="VB_stuff_Tests\FormatWeekTests.js" />
+    <Content Include="VB_stuff_Tests\ScanNumberTests.js" />
+    <Content Include="VB_stuff_Tests\SplitDateTests.js" />
+    <Content Include="VB_stuff_Tests\SplitTimeTests.js" />
+    <Content Include="VB_stuff_Tests\VBWeekdayTests.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
